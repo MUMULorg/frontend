@@ -12,6 +12,8 @@ import "./css/reset.css";
 import "./css/style.css";
 import KakaoAuthHandle from "./component/KakaoAuthHandle";
 
+import HealthCheck from "./component/HealthCheck";
+
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -44,6 +46,7 @@ function App() {
         <Route path="/setting" element={<Setting isLogin={isLogin} setIsLogin={setIsLogin}/>} />
         <Route path="/bookmark" element={<BookMark />} />
         <Route path="*" element={<div>404</div>} />
+        <Route path="/health" element={<HealthCheck />} />
       </Routes>
     </BrowserRouter>
   );
