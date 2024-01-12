@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { getUserInfo } from '../api/getUserInfo';
 
 const KakaoAuthHandle = (props) => {
