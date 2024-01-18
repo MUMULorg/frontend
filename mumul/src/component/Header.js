@@ -17,7 +17,7 @@ function Header({ isLogin, setIsLogin, currentUserInfo }) {
   };
 
   const handleMumulClick = () => {
-    window.location.href = "https://mumul.site";
+    window.location.href = "http://mumul.site";
   };
 
   useEffect(() => {

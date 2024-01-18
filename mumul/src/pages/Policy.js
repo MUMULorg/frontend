@@ -12,7 +12,7 @@ function Policy() {
         compliance with this privacy policy (&#8220;Policy&#8221;). This Policy
         describes the types of information we may collect from you or that you
         may provide (&#8220;Personal Information&#8221;) on the {" "}
-        <a ref={linkRef} href="https://mumul.site">mumul.site</a> website
+        <a ref={linkRef} href="http://mumul.site">mumul.site</a> website
         (&#8220;Website&#8221; or &#8220;Service&#8221;) and any of its related
         products and services (collectively, &#8220;Services&#8221;), and our
         practices for collecting, using, maintaining, protecting, and disclosing
