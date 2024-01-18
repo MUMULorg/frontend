@@ -8,11 +8,12 @@ import HttpsRedirect from 'react-https-redirect';
 
 // const root = ReactDOM.create(document.getElementById('root'));
 ReactDOM.render(
-  <HttpsRedirect>
+  //<HttpsRedirect>
   <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
     <App />
   </GoogleOAuthProvider>
-  </HttpsRedirect>, document.getElementById('root')
+  //</HttpsRedirect>
+  , document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
