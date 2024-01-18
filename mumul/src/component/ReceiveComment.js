@@ -77,6 +77,12 @@ function ReceiveComment({ spaceId, currentUserInfo }) {
       const spaInfo = await getSpaceInfo(spaceId);
       const response = await getPReceivedComment(spaceId, page, pageSize);
 
+
+      //뭐가 undefined인지 확인하기 위한 로그
+      console.log("response: ",response);
+      console.log("receivedComments: ",receivedComments);
+
+     // newComments가 정의되지 않았다면 빈 배열로 초기화
       const newComments = isInitialFetch
         ? response.data
         : [...receivedComments, ...response.data];
@@ -84,7 +90,9 @@ function ReceiveComment({ spaceId, currentUserInfo }) {
       setSpaceOwner(spaInfo);
 
       // deleteStates 배열을 모든 질문에 대해 초기화
+      // fix: newComments의 undefined 을 매핑하는 문제 해결
       const initialDeleteStates = newComments.map(() => false);
+
       setDeleteStates(initialDeleteStates);
       a_setDeleteStates(initialDeleteStates);
       setShareStates(initialDeleteStates);
