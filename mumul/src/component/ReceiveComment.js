@@ -237,7 +237,7 @@ function ReceiveComment({ spaceId, currentUserInfo }) {
 
   return (
     <>
-      {receivedComments.length === 0 && (
+      {receivedComments && receivedComments.length === 0 && (
         <>
          <div className="placeholder">
             <div className="profileArea">
