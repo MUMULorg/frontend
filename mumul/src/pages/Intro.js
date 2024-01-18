@@ -5,11 +5,14 @@ import { getUserInfo } from "../api/getUserInfo";
 import MobileBrowser from "../component/popup/MobileBrowser"; // 팝업창 컴포넌트 임포트
 
 const Intro = ({ isLogin, setIsLogin }) => {
+  console.log("인트로 로그인여부: "+ isLogin);
   const [currentUserInfo, setCurrentUserInfo] = useState({
     userId: "",
     picture: "",
     name: "",
   });
+
+
 
   const [showPopup, setShowPopup] = useState(false); // 팝업창 표시 여부 상태
 
@@ -27,6 +30,7 @@ const Intro = ({ isLogin, setIsLogin }) => {
     initUserInfo();
 
   }, [setIsLogin]);
+
 
 
 

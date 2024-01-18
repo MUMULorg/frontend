@@ -28,7 +28,9 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
     const codeFromURL = queryParams.get("code");
-    
+
+    console.log("login.js 로그인여부 1 : "+ isLogin);
+
     if (!isLogin && !hasRequestedCallback && codeFromURL) {
       setHasRequestedCallback(true);
       axios
@@ -51,12 +53,17 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
         });
     }
 
+  console.log("login.js 로그인여부 2: "+ isLogin);
+   
     if (isLogin) {
       const initLogin = async () => {
         const userInfo = await getUserInfo();
+        console.log("userInfo: ",userInfo);
+        console.log("userInfo.userId: ",userInfo.userId);
         if (userInfo === false) {
           setIsLogin(false);
         }
+       
         navigate(`/${userInfo.userId}`);
         setHasRequestedCallback(false);
       };
@@ -64,22 +71,6 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
     }
   }, [isLogin, setHasRequestedCallback, navigate, setIsLogin]);
 
-  // useEffect(() => {
-  //   const initLogin = async () => {
-  //     if (!isLogin) {
-  //       return;
-  //     }
-  //     const userInfo = await getUserInfo();
-  //     if(userInfo === false) {
-  //       setIsLogin(false);
-  //     }
-  //     navigate(`/${userInfo.userId}`);
-  //     setHasRequestedCallback(false);
-  //   };
-  //   if (isLogin) {
-  //     initLogin();
-  //   }
-  // }, [isLogin, navigate, setIsLogin]);
 
   return (
     <div className="wrap">

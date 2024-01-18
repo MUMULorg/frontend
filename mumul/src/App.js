@@ -32,7 +32,9 @@ function App() {
     };
     initUserInfo();
   }, [isLogin, setIsLogin]);
-  
+
+  console.log("APP.js 로그인여부: "+ isLogin);
+
   return (
     <BrowserRouter>
       <Routes>
