@@ -79,7 +79,7 @@ function ReceiveComment({ spaceId, currentUserInfo }) {
 
 
       //뭐가 undefined인지 확인하기 위한 로그
-      console.log("response: ",response);
+      console.log("response: ",response.data);
       console.log("receivedComments: ",receivedComments);
 
      // newComments가 정의되지 않았다면 빈 배열로 초기화
@@ -245,7 +245,7 @@ function ReceiveComment({ spaceId, currentUserInfo }) {
 
   return (
     <>
-      {receivedComments && receivedComments.length === 0 && (
+      {receivedComments.length === 0 && (
         <>
          <div className="placeholder">
             <div className="profileArea">
@@ -261,7 +261,7 @@ function ReceiveComment({ spaceId, currentUserInfo }) {
           </div>
         </>
       )}
-      {receivedComments && receivedComments.slice().map((received, index) => (
+      {receivedComments.slice().map((received, index) => (
         <React.Fragment key={received.id}>
           <div
             key={received.id}

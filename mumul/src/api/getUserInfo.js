@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+// withCredentials를 전역으로 설정
+axios.defaults.withCredentials = true;
+
 export const getUserInfo = async () => {
   const path = "/v1/oauth/user/info";
 

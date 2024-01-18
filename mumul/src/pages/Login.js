@@ -99,18 +99,6 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
               <p className="loginDecs">MUMUL 스페이스를 만드려면 로그인을 해야 돼</p>
             </div>
             <div className="buttonWrap">
-            {/* <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
-                <GoogleLogin
-                    onSuccess={(res) => {
-                        onGoogleSignIn(res);
-                    }}
-                    onFailure={(err) => {
-                        console.log(err);
-                    }}
-                    width='300px'
-                />
-            </GoogleOAuthProvider> */}
-              {/* <GoogleLogin onGoogleSignIn={onGoogleSignIn} text="로그인" /> */}
             <button onClick={kakaoLogin}>
               <img src={Cacao} alt="" />
               Kakao 계정으로 계속
