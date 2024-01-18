@@ -253,7 +253,7 @@ function ReceiveComment({ spaceId, currentUserInfo }) {
           </div>
         </>
       )}
-      {receivedComments.slice().map((received, index) => (
+      {receivedComments && receivedComments.slice().map((received, index) => (
         <React.Fragment key={received.id}>
           <div
             key={received.id}
