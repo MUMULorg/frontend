@@ -18,7 +18,7 @@ import Profile2 from "./../img/Ellipse 104.png";
 import Loading from "./Loading";
 
 
-// TODO : spaceId 근원 트랙킹하기 -> undefined 해결하기 
+// TODO : spaceId 근원 트랙킹하기 -> undefined 해
 
 function ReceiveComment({ spaceId, currentUserInfo }) {
   const [page, setPage] = useState(0); // 페이지 번호 상태값 추가
