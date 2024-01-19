@@ -7,6 +7,9 @@
     },
     "dependencies": {
         "@react-oauth/google": "^0.11.0",
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^12.1.2",
+        "@testing-library/user-event": "^13.5.0",
         "axios": "^1.4.0",
         "http-proxy-middleware": "^2.0.6",
         "js-joda": "^1.11.0",
@@ -17,13 +20,10 @@
         "react-google-login": "^5.2.2",
         "react-https-redirect": "^1.1.0",
         "react-router-dom": "^6.11.2",
-        "react-scripts": "^3.0.1",
+        "react-scripts": "^5.0.1",
         "react-svg": "^16.1.18",
         "swiper": "^6.8.4",
-        "web-vitals": "^2.1.4",
-        "@testing-library/jest-dom": "^5.16.5",
-        "@testing-library/react": "^12.1.2",
-        "@testing-library/user-event": "^13.5.0"
+        "web-vitals": "^2.1.4"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -36,6 +36,17 @@
         "extends": [
             "react-app",
             "react-app/jest"
+        ],
+        "overrides": [
+            {
+                "files": [
+                    "**/__tests__/**/*.js",
+                    "**/__mocks__/**/*.js"
+                ],
+                "env": {
+                    "jest": true
+                }
+            }
         ]
     },
     "browserslist": {
@@ -50,5 +61,8 @@
             "last 1 safari version"
         ]
     },
-    "proxy": "http://3.37.158.206"
+    "proxy": "http://3.37.158.206",
+    "devDependencies": {
+        "@babel/plugin-proposal-private-property-in-object": "*"
+    }
 }
