@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Close from "../../img/icon/close.png";
 import { useParams } from "react-router-dom";
 import {createAnswer} from "../../api/Q&A/createAnswer";
+import PropTypes from 'prop-types';
+
 
 function AnswerRegister({ CloseAnswerModal , currentUserInfo, questionId, sentUserId, sentUserPic, questionText}) {
   const { id } = useParams();
@@ -88,5 +90,16 @@ function AnswerRegister({ CloseAnswerModal , currentUserInfo, questionId, sentUs
     </div>
   );
 }
+
+AnswerRegister.propTypes = {
+  loseAnswerModal: PropTypes.any.isRequired,  
+  currentUserInfo: PropTypes.any.isRequired, 
+  questionId: PropTypes.any.isRequired, 
+  sentUserId: PropTypes.any.isRequired, 
+  sentUserPic: PropTypes.any.isRequired, 
+  questionText: PropTypes.any.isRequired,
+  CloseAnswerModal: PropTypes.any.isRequired,
+};
+
 
 export default AnswerRegister;

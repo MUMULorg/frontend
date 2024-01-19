@@ -30,7 +30,7 @@ function Comment() {
           <p className="Nicname">MUMUL 개발자</p>
           <p className="min">방금 전</p>
           <p className="commentCnt">
-            무물이란 <strong>'무엇이든 물어보세요'</strong> 의 줄임말로, MUMUL은 익명 혹은 닉네임으로 자유롭게 문답하는 사이트입니다 😎
+            무물이란 <strong>&apos;무엇이든 물어보세요&apos;</strong> 의 줄임말로, MUMUL은 익명 혹은 닉네임으로 자유롭게 문답하는 사이트입니다 😎
           </p>
         
         </div>

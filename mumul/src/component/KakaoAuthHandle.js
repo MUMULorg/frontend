@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { getUserInfo } from '../api/getUserInfo';
+import PropTypes from 'prop-types';
 
 const KakaoAuthHandle = (props) => {
   useEffect(() => {
@@ -24,6 +25,11 @@ const KakaoAuthHandle = (props) => {
     </>
   );
 };
+
+KakaoAuthHandle.propTypes = {
+  history: PropTypes.object.isRequired,
+};
+
 
 export default KakaoAuthHandle;
 

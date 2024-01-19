@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 function AnonymousAnswer({ question, answers, currentUserInfo }) {
   if (!answers) {
@@ -23,5 +24,11 @@ function AnonymousAnswer({ question, answers, currentUserInfo }) {
     </div>
   );
 }
+
+AnonymousAnswer.propTypes = {
+  question: PropTypes.object.isRequired,
+  answers: PropTypes.array.isRequired,
+  currentUserInfo: PropTypes.object.isRequired,
+};
 
 export default AnonymousAnswer;

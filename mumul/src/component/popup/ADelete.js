@@ -1,6 +1,7 @@
 import React from "react";
 import Close from "../../img/icon/close.png";
 import { deleteAnswer} from "../../api/Q&A/deleteAnswer"
+import PropTypes from 'prop-types';
 
 function ADelete({ answerId,  onClose , spaceId, userId}) {
 
@@ -47,4 +48,10 @@ function ADelete({ answerId,  onClose , spaceId, userId}) {
   );
 }
 
+ADelete.propTypes = {
+  answerId: PropTypes.any.isRequired,
+  onClose: PropTypes.any.isRequired,
+  spaceId: PropTypes.any.isRequired,
+  userId: PropTypes.any.isRequired,
+};
 export default ADelete;

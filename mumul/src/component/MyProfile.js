@@ -4,7 +4,7 @@ import { getFollowingNumber } from "../api/Follow/getFollowingNumber";
 import { getFollwerNumber } from "../api/Follow/getFollowerNumber";
 import { getFollowerList } from "../api/Follow/getFollowerList";
 import Storyslide from "./Storyslide";
-
+import PropTypes from 'prop-types';
 
 function MyProfile({ currentUserInfo, followSelected, setFollowSelected }) {
   const [modal, setModal] = useState(false);
@@ -150,5 +150,12 @@ function MyProfile({ currentUserInfo, followSelected, setFollowSelected }) {
     </>
   );
 }
+
+
+MyProfile.propTypes = {
+  currentUserInfo: PropTypes.object.isRequired,
+  followSelected: PropTypes.bool.isRequired,
+  setFollowSelected: PropTypes.func.isRequired,
+};
 
 export default MyProfile;

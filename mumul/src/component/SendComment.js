@@ -14,6 +14,7 @@ import AnswerBtn from "./AnswerButton";
 import Profile2 from "./../img/Ellipse 104.png";
 import Loading from "./Loading";
 import { getPSentComment } from "../api/Q&A/getPSentComment";
+import PropTypes from 'prop-types';
 
 function SendComment({ spaceId, info, currentUserInfo }) {
   const [page, setPage] = useState(0); // 페이지 번호 상태값 추가
@@ -423,6 +424,13 @@ function SendComment({ spaceId, info, currentUserInfo }) {
     </>
   );
 }
+
+SendComment.propTypes = {
+  spaceId: PropTypes.string.isRequired,
+  info: PropTypes.object.isRequired,
+  currentUserInfo: PropTypes.object.isRequired,
+};
+
 
 export default SendComment;
 

@@ -4,6 +4,7 @@ import NoneMember from "../component/popup/NoneMember";
 import { getUserInfo } from "../api/getUserInfo";
 import { putStopSpace } from "../api/User/putStopSpace";
 import { putAlertSpace } from "../api/User/putAlertSpace"; 
+import PropTypes from 'prop-types';
 
 function Setting({isLogin, setIsLogin}) {
   const [settingModal, setSettingModal] = useState(false);
@@ -103,6 +104,11 @@ function Setting({isLogin, setIsLogin}) {
       {settingModal && <NoneMember currentUserInfo={currentUserInfo} onClose={onClose} setIsLogin={setIsLogin}></NoneMember>}
     </div>
   );
+}
+
+Setting.propTypes={
+  isLogin: PropTypes.any.isRequired,
+  setIsLogin: PropTypes.any.isRequired,
 }
 
 export default Setting;

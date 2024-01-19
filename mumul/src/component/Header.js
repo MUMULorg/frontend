@@ -1,8 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { logoutUserToken } from "../api/logoutUserToken";
+import PropTypes from 'prop-types';
+
 
 function Header({ isLogin, setIsLogin, currentUserInfo }) {
+  
   const [modal, setModal] = useState(false);
   const profileRef = useRef(null);
 
@@ -54,7 +57,9 @@ function Header({ isLogin, setIsLogin, currentUserInfo }) {
       )}
     </header>
   );
+  
 }
+
 
 function HeaderPopup({ isLogin, setIsLogin, currentUserInfo }) {
   const token = localStorage.getItem("token");
@@ -105,5 +110,19 @@ function HeaderPopup({ isLogin, setIsLogin, currentUserInfo }) {
     </ul>
   );
 }
+
+
+Header.propTypes = {
+  isLogin: PropTypes.any.isRequired,
+  setIsLogin: PropTypes.any.isRequired,
+  currentUserInfo: PropTypes.any.isRequired,
+};
+
+HeaderPopup.propTypes = {
+  isLogin: PropTypes.any.isRequired,
+  setIsLogin: PropTypes.any.isRequired,
+  currentUserInfo: PropTypes.any.isRequired,
+};
+
 
 export default Header;

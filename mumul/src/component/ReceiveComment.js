@@ -16,7 +16,7 @@ import AnswerBtn from "./AnswerButton";
 import Profile5 from "./../img/Ellipse 105.png";
 import Profile2 from "./../img/Ellipse 104.png";
 import Loading from "./Loading";
-
+import PropTypes from 'prop-types';
 
 // TODO : spaceId 근원 트랙킹하기 -> undefined 해
 
@@ -471,6 +471,12 @@ function ReceiveComment({ spaceId, currentUserInfo }) {
     </>
   );
 }
+
+ReceiveComment.propTypes = {
+  spaceId: PropTypes.string.isRequired,
+  currentUserInfo: PropTypes.object.isRequired,
+};
+
 
 export default ReceiveComment;
 

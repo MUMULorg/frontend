@@ -12,6 +12,7 @@ import tokki9 from "../../img/Ellipse 110.png";
 import tokki10 from "../../img/Ellipse 111.png";
 import { useParams } from "react-router-dom";
 import { createQuestion } from "../../api/Q&A/createQuestion";
+import PropTypes from 'prop-types';
 
 function QuestionRegister({ info, currentUserInfo, onClose }) {
   const { id } = useParams();
@@ -109,6 +110,12 @@ function QuestionRegister({ info, currentUserInfo, onClose }) {
       </div>
     </div>
   );
+}
+
+QuestionRegister.propTypes={
+  onClose: PropTypes.any.isRequired,
+  info: PropTypes.any.isRequired,  
+  currentUserInfo: PropTypes.any.isRequired,  
 }
 
 export default QuestionRegister;

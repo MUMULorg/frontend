@@ -1,5 +1,6 @@
 import React from "react";
 import Close from "../../img/icon/close.png";
+import PropTypes from 'prop-types';
 
 const MobileBrowser = ({ onClose }) =>  {
   return (
@@ -25,5 +26,9 @@ const MobileBrowser = ({ onClose }) =>  {
       </div>
     </div>
   );
+}
+
+MobileBrowser.propTypes={
+  onClose: PropTypes.any.isRequired,  
 }
 export default MobileBrowser;

@@ -1,6 +1,6 @@
 import React from "react";
 import Close from "../../img/icon/close.png";
-
+import PropTypes from 'prop-types';
 
 export default function CantRegister({ onClose }) {
   return (
@@ -26,5 +26,9 @@ export default function CantRegister({ onClose }) {
     </div>
   );
 }
+
+CantRegister.propTypes = {
+  onClose: PropTypes.any.isRequired,  
+};
 
 

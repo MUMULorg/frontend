@@ -9,6 +9,7 @@ import { getUserInfo } from "../api/getUserInfo";
 import Goggle from "./../img/icon/icGoggle.png";
 import Cacao from "./../img/icon/icCacao.png";
 import axios from "axios";
+import PropTypes from 'prop-types';
 
 const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallback }) => {
   const navigate = useNavigate();
@@ -105,5 +106,13 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
     </div>
   );
 };
+
+Login.propTypes={
+  isLogin: PropTypes.any.isRequired,
+  setIsLogin: PropTypes.any.isRequired,
+  hasRequestedCallback: PropTypes.any.isRequired,  
+  setHasRequestedCallback: PropTypes.any.isRequired,    
+}
+
 
 export default Login;

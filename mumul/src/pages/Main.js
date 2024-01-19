@@ -7,6 +7,7 @@ import QuestionerProfile from "../component/QuestionerProfile";
 import { useParams } from "react-router-dom";
 import { getSpaceInfo } from "../api/getSpaceInfo";
 import { getUserInfo } from "../api/getUserInfo";
+import PropTypes from 'prop-types';
 
 function Main({isLogin, setIsLogin, followSelected, setFollowSelected}) {
   const { id } = useParams();
@@ -117,4 +118,10 @@ function Main({isLogin, setIsLogin, followSelected, setFollowSelected}) {
   );
 }
 
+Main.propTypes={
+  isLogin: PropTypes.any.isRequired,
+  setIsLogin: PropTypes.any.isRequired,
+  followSelected: PropTypes.any.isRequired,  
+  setFollowSelected: PropTypes.any.isRequired,    
+}
 export default Main;

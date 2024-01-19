@@ -1,6 +1,7 @@
 import React from "react";
 import Close from "../../img/icon/close.png";
 import { deleteQuestion } from "../../api/Q&A/deleteQuestion";
+import PropTypes from 'prop-types';
 
 function QDelete({ questionId,  onClose , spaceId, userId}) {
 
@@ -45,6 +46,13 @@ function QDelete({ questionId,  onClose , spaceId, userId}) {
       </div>
     </div>
   );
+}
+
+QDelete.propTypes={
+  onClose: PropTypes.any.isRequired,
+  questionId: PropTypes.any.isRequired,  
+  spaceId: PropTypes.any.isRequired,  
+  userId: PropTypes.any.isRequired,  
 }
 
 export default QDelete;

@@ -6,31 +6,34 @@
         "node": "^16.0.0"
     },
     "dependencies": {
+        "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining": "^7.23.3",
         "@react-oauth/google": "^0.11.0",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^12.1.2",
         "@testing-library/user-event": "^13.5.0",
         "axios": "^1.4.0",
+        "css-select": "^5.1.0",
         "http-proxy-middleware": "^2.0.6",
         "js-joda": "^1.11.0",
         "moment": "^2.29.4",
         "nginx": "^1.0.8",
+        "postcss": "^8.4.31",
         "react": "^16.8.0",
         "react-dom": "^16.8.0",
         "react-google-login": "^5.2.2",
         "react-https-redirect": "^1.1.0",
         "react-router-dom": "^6.11.2",
-        "react-scripts": "^3.0.1",
+        "react-scripts": "^5.0.1",
         "react-svg": "^16.1.18",
         "swiper": "^6.8.4",
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "BABEL_SKIP_CHECK=1 react-scripts start",
-        "build": "BABEL_SKIP_CHECK=1 react-scripts build",
-        "test": "BABEL_SKIP_CHECK=1 react-scripts test",
-        "eject": "BABEL_SKIP_CHECK=1 react-scripts eject"
-      },
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
     "eslintConfig": {
         "extends": [
             "react-app",
@@ -62,7 +65,6 @@
     },
     "proxy": "http://3.37.158.206",
     "devDependencies": {
-        "@babel/plugin-proposal-private-property-in-object": "^1.0.0",
         "eslint": "^8.56.0",
         "eslint-plugin-react": "^7.33.2"
     }

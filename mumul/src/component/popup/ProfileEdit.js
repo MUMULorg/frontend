@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Close from "../../img/icon/close.png";
 import { putUserProfileEdit } from "../../api/putUserProfileEdit";
+import PropTypes from 'prop-types';
 
 function ProfileEdit({ onClose, currentUserInfo }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -140,6 +141,11 @@ function ProfileEdit({ onClose, currentUserInfo }) {
       </div>
     </div>
   );
+}
+
+ProfileEdit.propTypes={
+  onClose: PropTypes.any.isRequired,
+  currentUserInfo: PropTypes.any.isRequired,  
 }
 
 export default ProfileEdit;

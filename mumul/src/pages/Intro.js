@@ -3,6 +3,7 @@ import Comment from "../pages/Comment";
 import React, { useState, useEffect } from "react";
 import { getUserInfo } from "../api/getUserInfo";
 import MobileBrowser from "../component/popup/MobileBrowser"; // 팝업창 컴포넌트 임포트
+import PropTypes from 'prop-types';
 
 const Intro = ({ isLogin, setIsLogin }) => {
   console.log("인트로 로그인여부: "+ isLogin);
@@ -66,5 +67,11 @@ const Intro = ({ isLogin, setIsLogin }) => {
     </div>
   );
 };
+
+Intro.propTypes={
+  isLogin: PropTypes.any.isRequired,
+  setIsLogin: PropTypes.any.isRequired,  
+}
+
 
 export default Intro;

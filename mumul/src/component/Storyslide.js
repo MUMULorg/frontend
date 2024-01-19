@@ -5,7 +5,7 @@ import 'swiper/swiper.min.css'
 import { Navigation } from "swiper";
 import { getFollowingList } from "../api/Follow/getFollowingList";
 import { getSpaceInfo } from "../api/getSpaceInfo";
-
+import PropTypes from 'prop-types';
 
 function Storyslide({spaceId, followSelected, followerList}) {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -111,5 +111,11 @@ function Storyslide({spaceId, followSelected, followerList}) {
   );
   
 }
+
+Storyslide.propTypes = {
+  spaceId: PropTypes.string.isRequired,
+  followSelected: PropTypes.bool.isRequired,
+  followerList: PropTypes.array.isRequired,
+};
 
 export default Storyslide;

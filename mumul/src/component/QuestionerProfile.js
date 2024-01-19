@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import QuestionRegister from "./popup/QuestionRegister";
 import Storyslide from "./Storyslide";
+import PropTypes from 'prop-types';
 
 import { postFollow } from "../api/Follow/postFollow";
 import { postUnFollow } from "../api/Follow/postUnFollow";
@@ -229,5 +230,15 @@ function QuestionerProfile({ spaceUserInfo, currentUserInfo, followSelected, set
     </>
   );
 }
+
+
+QuestionerProfile.propTypes = {
+  spaceUserInfo: PropTypes.object.isRequired,
+  currentUserInfo: PropTypes.object.isRequired,
+  followSelected: PropTypes.bool.isRequired,
+  setFollowSelected: PropTypes.func.isRequired,
+  isLogin: PropTypes.bool.isRequired,
+};
+
 
 export default QuestionerProfile;
