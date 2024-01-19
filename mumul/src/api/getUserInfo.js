@@ -1,13 +1,12 @@
-import axios from 'axios';
+import { customAxios } from "./customAxios";
 
-// withCredentials를 전역으로 설정
-axios.defaults.withCredentials = true;
+
 
 export const getUserInfo = async () => {
   const path = "/v1/oauth/user/info";
 
   try {
-    const response = await axios.get(path, {
+    const response = await customAxios.get(path, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',

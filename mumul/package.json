@@ -11,6 +11,10 @@
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^12.1.2",
         "@testing-library/user-event": "^13.5.0",
+        "@types/jest": "^29.5.11",
+        "@types/node": "^20.11.5",
+        "@types/react": "^17.0.75",
+        "@types/react-dom": "^17.0.25",
         "axios": "^1.4.0",
         "css-select": "^5.1.0",
         "http-proxy-middleware": "^2.0.6",
@@ -23,7 +27,7 @@
         "react-google-login": "^5.2.2",
         "react-https-redirect": "^1.1.0",
         "react-router-dom": "^6.11.2",
-        "react-scripts": "^5.0.1",
+        "react-scripts": "^3.0.1",
         "react-svg": "^16.1.18",
         "swiper": "^6.8.4",
         "web-vitals": "^2.1.4"
@@ -66,6 +70,9 @@
     "proxy": "http://3.37.158.206",
     "devDependencies": {
         "eslint": "^8.56.0",
-        "eslint-plugin-react": "^7.33.2"
+        "eslint-plugin-flowtype": "^8.0.3",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-react": "^7.33.2",
+        "eslint-plugin-react-hooks": "^5.0.0-canary-b30030471-20240117"
     }
 }

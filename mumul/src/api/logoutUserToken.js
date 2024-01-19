@@ -1,10 +1,10 @@
-import axios from 'axios';
+import { customAxios } from "./customAxios";
 
 export const logoutUserToken = async () => {
     const path = '/v1/oauth/logout';
 
     try {
-        const response = await axios.post(`${path}`, null, {
+        const response = await customAxios.post(`${path}`, null, {
             headers: {
               'Content-Type': 'application/json',
               Accept: 'application/json',

@@ -1,10 +1,10 @@
-import axios from 'axios';
+import { customAxios } from "./../customAxios";
 
 export const deleteAnswer = async (spaceId, answerId, userId) => {
     const path = `/spaces/${spaceId}/${answerId}/${userId}/answer/delete`;
 
     try {
-        const response = await axios.delete(
+        const response = await customAxios.delete(
           path,{         
             data:{
                 userId: userId,

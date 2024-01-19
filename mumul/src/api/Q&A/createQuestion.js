@@ -1,11 +1,11 @@
-import axios from "axios";
+import { customAxios } from "./../customAxios";
 import { LocalDateTime } from "js-joda";
 
 
 export const createQuestion = async (info, id, currentUserInfo, questionText, btn, randomImage) => {
   const token = localStorage.getItem('token');
   try {
-    await axios.post(
+    await customAxios.post(
       `/spaces/${id}/question/create`,
       {
         sentUserPic: randomImage,
