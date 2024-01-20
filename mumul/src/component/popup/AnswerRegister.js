@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Close from "../../img/icon/close.png";
 import { useParams } from "react-router-dom";
-import {createAnswer} from "../../api/Q&A/createAnswer";
+import { createAnswer } from "../../api/Q&A/createAnswer";
 import PropTypes from 'prop-types';
 
 
-function AnswerRegister({ CloseAnswerModal , currentUserInfo, questionId, sentUserId, sentUserPic, questionText}) {
+function AnswerRegister({ CloseAnswerModal, currentUserInfo, questionId, sentUserId, sentUserPic, questionText }) {
   const { id } = useParams();
   let [inputCount, setInputCount] = useState(0);
   const [btn, setBtn] = useState(true);
@@ -21,7 +21,7 @@ function AnswerRegister({ CloseAnswerModal , currentUserInfo, questionId, sentUs
     setBtn(!btn);
   };
 
-    // 답변 등록하는 API
+  // 답변 등록하는 API
   const registerAnswer = async () => {
     try {
       await createAnswer(id, currentUserInfo, answerText, btn, questionId);
@@ -65,12 +65,16 @@ function AnswerRegister({ CloseAnswerModal , currentUserInfo, questionId, sentUs
                 <p className="myId id">{currentUserInfo.name}</p>
                 {btn ? (
                   <button className="openBtn" onClick={clickBtn}>
-                  🔒질문자에게만 보이는 답변
-                </button>
+                    <span role="img" aria-label="link">
+                      🔒질문자에게만 보이는 답변
+                    </span>
+                  </button>
                 ) : (
                   <button className="openBtn" onClick={clickBtn}>
-                  📢공개 답변
-                </button>
+                     <span role="img" aria-label="link">
+                    📢공개 답변
+                    </span>
+                  </button>
                 )}
               </div>
             </div>
@@ -92,11 +96,11 @@ function AnswerRegister({ CloseAnswerModal , currentUserInfo, questionId, sentUs
 }
 
 AnswerRegister.propTypes = {
-  loseAnswerModal: PropTypes.any.isRequired,  
-  currentUserInfo: PropTypes.any.isRequired, 
-  questionId: PropTypes.any.isRequired, 
-  sentUserId: PropTypes.any.isRequired, 
-  sentUserPic: PropTypes.any.isRequired, 
+  loseAnswerModal: PropTypes.any.isRequired,
+  currentUserInfo: PropTypes.any.isRequired,
+  questionId: PropTypes.any.isRequired,
+  sentUserId: PropTypes.any.isRequired,
+  sentUserPic: PropTypes.any.isRequired,
   questionText: PropTypes.any.isRequired,
   CloseAnswerModal: PropTypes.any.isRequired,
 };

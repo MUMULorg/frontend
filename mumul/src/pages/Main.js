@@ -55,6 +55,7 @@ function Main({isLogin, setIsLogin, followSelected, setFollowSelected}) {
     };
   
     initUserInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, isLogin, followSelected]);
   
 

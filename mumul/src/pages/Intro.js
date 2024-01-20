@@ -42,7 +42,10 @@ const Intro = ({ isLogin, setIsLogin }) => {
   return (
     <div className="wrap intro">
       <div className="contentWrap">
-        <p className="introTitle">🐇토끼🐇로 무물에 녹아 들자</p>
+        <p className="introTitle">
+        <span role="img" aria-label="link">
+          🐇토끼🐇로 무물에 녹아 들자
+          </span></p>
         <Comment></Comment>
       
         {isLogin ? (

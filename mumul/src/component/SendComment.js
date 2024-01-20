@@ -36,12 +36,7 @@ function SendComment({ spaceId, info, currentUserInfo }) {
   const [shareStates, setShareStates] = useState({});
   //삭제 상태값
   const [del, setDelete] = useState(false);
-  const [del_1, setDelete_1] = useState(false);
-  //공유하기 상태값
-  const [share, setShare] = useState(false);
-  const [share_1, setShare_1] = useState(false);
-  //공유하기 모달 오픈 상태값
-  const [shareModal, setShareModal] = useState(false);
+
   //질문 삭제 모달 오픈 상태값
   const [delModal, setDelModal] = useState(false);
   //답변 삭제 모달 오픈 상태값
@@ -106,6 +101,7 @@ function SendComment({ spaceId, info, currentUserInfo }) {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [spaceId, pageSize]);
 
   useEffect(() => {
@@ -188,25 +184,8 @@ function SendComment({ spaceId, info, currentUserInfo }) {
     a_setDelModal(false);
   };
 
-  // 클릭한 질문에 대한 공유하기 상태값 변경
-  const clickMore_s = (index) => {
-    setShareStates((prevStates) => {
-      const newStates = [...prevStates];
-      newStates[index] = !newStates[index];
-      return newStates;
-    });
-  };
 
-  //공유하기  오픈
-  const showShareModal_1 = () => {
-    if (share_1) {
-      setShareModal(false);
-      setShare_1(false);
-    } else {
-      setShareModal(true);
-      setShare_1(true);
-    }
-  };
+
 
   return (
     <>
@@ -224,7 +203,9 @@ function SendComment({ spaceId, info, currentUserInfo }) {
               <p className="pre_Nickname">{spaceOwner.name}</p>
               <p className="pre_min">언젠가</p>
               <p className="pre_commentCnt">
+              <span role="img" aria-label="link">
                 보낸 질문이 없어요🤖 첫 무물을 남겨 보세요!
+                </span>
               </p>
             </div>
           </div>
@@ -243,9 +224,12 @@ function SendComment({ spaceId, info, currentUserInfo }) {
               </div>
               <div className="cnt">
                 <p className="pre_Nickname">{spaceOwner.name}</p>
-                <p className="pre_min">언젠가🔒</p>
+                <p className="pre_min">
+                <span role="img" aria-label="link">언젠가🔒</span></p>
                 <p className="pre_commentCnt">
+                <span role="img" aria-label="link">
                   보낸 질문이 없어요🤖 첫 무물을 남겨 보세요!
+                  </span>
                 </p>
               </div>
             </div>

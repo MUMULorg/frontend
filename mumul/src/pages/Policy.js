@@ -347,7 +347,7 @@ function Policy() {
         authorized to access or use the Website and Services. This privacy
         policy was created with the help of{" "}
         <a ref={linkRef} href="https://www.websitepolicies.com/privacy-policy-generator"
-          target="_blank" rel="noreferrer"
+          target="_blank" rel="noopener noreferrer"
         >
           WebsitePolicies
         </a>

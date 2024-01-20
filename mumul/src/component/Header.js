@@ -62,7 +62,6 @@ function Header({ isLogin, setIsLogin, currentUserInfo }) {
 
 
 function HeaderPopup({ isLogin, setIsLogin, currentUserInfo }) {
-  const token = localStorage.getItem("token");
 
   const handleLogout = async () => {
     try {

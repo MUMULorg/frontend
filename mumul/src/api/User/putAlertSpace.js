@@ -1,11 +1,11 @@
-import { customAxios } from "./../customAxios";
+import axios from "axios";
 
 export const putAlertSpace = async (currentUserId, alertSpace) => {
     const path = '/v1/oauth/user/alertSpace/' + currentUserId;
     const token = localStorage.getItem('token');
 
   try {
-    const response = await customAxios.put(path, alertSpace, {
+    const response = await axios.put(path, alertSpace, {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',

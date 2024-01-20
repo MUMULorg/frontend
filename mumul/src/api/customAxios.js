@@ -1,5 +1,5 @@
-import axios from 'axios';
+// import axios from 'axios';
 
-export const customAxios = axios.create({
-  withCredentials: true,
-});
+// export const customAxios = axios.create({
+//   withCredentials: true,
+// });

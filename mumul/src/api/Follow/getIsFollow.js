@@ -1,11 +1,11 @@
-import { customAxios } from "./../customAxios";
+import axios from "axios";
 
 export const getIsFollow = async (spaceId) => {
     const path = `/isFollow/${spaceId}`;
     const token = localStorage.getItem('token');
 
     try {
-        const response = await customAxios.get(path, {
+        const response = await axios.get(path, {
           headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json',

@@ -70,6 +70,7 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
       };
       initLogin();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLogin, setHasRequestedCallback, navigate, setIsLogin]);
 
 

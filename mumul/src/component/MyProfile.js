@@ -118,7 +118,7 @@ function MyProfile({ currentUserInfo, followSelected, setFollowSelected }) {
               <a
                   href={"https://www.instagram.com/" + currentUserInfo.instaId}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   <div className="instaId">
                     @ <span>{currentUserInfo.instaId}</span>
@@ -127,11 +127,11 @@ function MyProfile({ currentUserInfo, followSelected, setFollowSelected }) {
             </div>
           )}
         <p className="mylink">
-          <span>🔗</span>
+          <span role="img" aria-label="link">🔗</span>
           <a
             href={currentUserInfo.link}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             {currentUserInfo.link}
           </a>

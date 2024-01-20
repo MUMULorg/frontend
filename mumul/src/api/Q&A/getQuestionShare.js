@@ -1,10 +1,10 @@
-import { customAxios } from "./../customAxios";
+import axios from "axios";
 
 export const getQuestionShare = async (questionId) => {
     const path = `/spaces/${questionId}/get`;
 
     try {
-        const response = await customAxios.get(path, {
+        const response = await axios.get(path, {
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json'

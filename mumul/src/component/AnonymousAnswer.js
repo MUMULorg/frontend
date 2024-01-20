@@ -16,7 +16,10 @@ function AnonymousAnswer({ question, answers, currentUserInfo }) {
             question.sendingUserId === currentUserInfo.userId || question.receivingUserId === currentUserInfo.userId ? (
               <p className="commentCnt">{answer.answerText}</p>
             ) : (
-              <button className="answerBtn">🔒질문자만 볼 수 있는 답변입니다.</button>
+              <button className="answerBtn">
+                 <span role="img" aria-label="link">
+                  </span>🔒질문자만 볼 수 있는 답변입니다.
+                  </button>
             )
           )}
         </div>

@@ -197,7 +197,7 @@ function QuestionerProfile({ spaceUserInfo, currentUserInfo, followSelected, set
               <a
                 href={"https://www.instagram.com/" + spaceUserInfo.instaId}
                 target="_blank"
-                rel="noreferrer"
+                without rel="noopener noreferrer"
               >
                 <div className="instaId">
                   @ <span>{spaceUserInfo.instaId}</span>
@@ -210,8 +210,8 @@ function QuestionerProfile({ spaceUserInfo, currentUserInfo, followSelected, set
             ""
           ) : (
             <div className="mylink">
-              <span>🔗</span>
-              <a href={spaceUserInfo.link} target="_blank" rel="noreferrer">
+               <span role="img" aria-label="link">🔗</span>
+              <a href={spaceUserInfo.link} target="_blank" without rel="noopener noreferrer">
                 {spaceUserInfo.link}
               </a>
             </div>

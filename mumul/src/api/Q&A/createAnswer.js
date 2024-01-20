@@ -1,11 +1,11 @@
-import { customAxios } from "./../customAxios";
+import axios from "axios";
 import { LocalDateTime } from "js-joda";
 
 
 export const createAnswer = async (id, currentUserInfo, answerText, btn, questionId) => {
 
   try {
-    const response = await customAxios.post(
+    const response = await axios.post(
       `/spaces/${id}/${questionId}/answer/create`,
       {
         isPublic: btn,

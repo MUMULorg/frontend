@@ -23,6 +23,7 @@ function QuestionRegister({ info, currentUserInfo, onClose }) {
 
   useEffect(() => {
     randomizeImage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [btn]);
 
   const clickOpenBtn = () => {
@@ -80,14 +81,18 @@ function QuestionRegister({ info, currentUserInfo, onClose }) {
                   <>
                     <p className="myId">익명의 토끼</p>
                     <button className="openBtn" onClick={clickOpenBtn}>
+                    <span role="img" aria-label="link">
                      🐰 토끼로 녹아들기
+                     </span>
                     </button>
                   </>
                 ) : (
                   <>
                     <p className="myId">{currentUserInfo.name}</p>
                     <button className="openBtn" onClick={clickOpenBtn}>
+                    <span role="img" aria-label="link">
                      👤 공개 무물하기
+                     </span>
                     </button>
                   </>
                 )}

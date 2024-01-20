@@ -12,9 +12,7 @@ import UntilAnswering from "./UntilAnswering";
 import AnswerRegister from "./popup/AnswerRegister";
 import CantModal from "./popup/CantRegister";
 import ADelete from "./popup/ADelete";
-import AnswerBtn from "./AnswerButton";
 import Profile5 from "./../img/Ellipse 105.png";
-import Profile2 from "./../img/Ellipse 104.png";
 import Loading from "./Loading";
 import PropTypes from 'prop-types';
 
@@ -116,6 +114,7 @@ function ReceiveComment({ spaceId, currentUserInfo }) {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [spaceId, pageSize]);
 
   useEffect(() => {
@@ -183,14 +182,14 @@ function ReceiveComment({ spaceId, currentUserInfo }) {
     });
   };
 
-  // 클릭한 질문에 대한 공유하기 상태값 변경
-  const clickMore_s = (index) => {
-    setShareStates((prevStates) => {
-      const newStates = [...prevStates];
-      newStates[index] = !newStates[index];
-      return newStates;
-    });
-  };
+  // // 클릭한 질문에 대한 공유하기 상태값 변경
+  // const clickMore_s = (index) => {
+  //   setShareStates((prevStates) => {
+  //     const newStates = [...prevStates];
+  //     newStates[index] = !newStates[index];
+  //     return newStates;
+  //   });
+  // };
 
   // 질문 삭제하기 클릭 시 모달 오픈
   const showDelModal = (questionId, spaceId, userId) => {
@@ -258,7 +257,9 @@ function ReceiveComment({ spaceId, currentUserInfo }) {
               <p className="pre_Nickname">익명의 토끼</p>
               <p className="pre_min">언젠가</p>
               <p className="pre_commentCnt">
+              <span role="img" aria-label="link">
                 받은 질문이 없어요🤖 첫 무물의 주인공이 되어 보세요!
+                </span>
               </p>
             </div>
           </div>

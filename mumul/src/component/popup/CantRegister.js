@@ -11,7 +11,11 @@ export default function CantRegister({ onClose }) {
             <img src={Close} alt="close" onClick={onClose} />
           </div>
           <div className="popupContent delPopup">
-            <p className="popupTitle">🐰새로운 무물이 필요합니다🐰</p>
+            <p className="popupTitle">
+            <span role="img" aria-label="link">
+              🐰새로운 무물이 필요합니다🐰
+              </span>
+              </p>
             <p className="subTitle">
               질문 한 개당 답변 한 개로 제한됩니다.
             </p>

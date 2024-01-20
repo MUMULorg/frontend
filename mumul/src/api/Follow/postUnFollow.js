@@ -1,11 +1,11 @@
-import { customAxios } from "./../customAxios";
+import axios from "axios";
 
 export const postUnFollow = async (spaceId) => {
     const path = '/unFollow/' + spaceId;
     const token = localStorage.getItem('token');
 
     try {
-      const response = await customAxios.post(path, {}, {
+      const response = await axios.post(path, {}, {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',

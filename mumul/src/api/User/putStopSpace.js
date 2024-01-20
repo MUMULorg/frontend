@@ -1,11 +1,11 @@
-import { customAxios } from "./../customAxios";
+import axios from "axios";
 
 export const putStopSpace = async (currentUserId, stopSpace) => {
     const path = '/v1/oauth/user/spaceStop/' + currentUserId;
     const token = localStorage.getItem('token');
 
   try {
-    const response = await customAxios.put(path, stopSpace, {
+    const response = await axios.put(path, stopSpace, {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',

@@ -1,10 +1,10 @@
-import { customAxios } from "./../customAxios";
+import axios from "axios";
 
 export const getPReceivedComment = async (spaceId, page, pageSize) => {
     const path = `/spaces/${spaceId}/received/get?page=${page}&size=${pageSize}`;
 
     try {
-        const response = await customAxios.get(path, {
+        const response = await axios.get(path, {
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',

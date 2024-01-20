@@ -1,10 +1,10 @@
-import { customAxios } from "./customAxios";
+import axios from "axios";
 
 export const postLoginToken = async (idToken) => {
   const path = '/v1/oauth/login';
 
   try {
-    const response = await customAxios.post(path, idToken, {
+    const response = await axios.post(path, idToken, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
