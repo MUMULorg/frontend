@@ -19,6 +19,7 @@
         "css-select": "^5.1.0",
         "http-proxy-middleware": "^2.0.6",
         "js-joda": "^1.11.0",
+        "mime": "^2.6.0",
         "moment": "^2.29.4",
         "nginx": "^1.0.8",
         "postcss": "^8.4.31",
@@ -73,6 +74,7 @@
         "eslint-plugin-flowtype": "^8.0.3",
         "eslint-plugin-import": "^2.29.1",
         "eslint-plugin-react": "^7.33.2",
-        "eslint-plugin-react-hooks": "^5.0.0-canary-b30030471-20240117"
+        "eslint-plugin-react-hooks": "^5.0.0-canary-b30030471-20240117",
+        "react-dev-utils": "^9.1.0"
     }
 }
