@@ -10,7 +10,11 @@ export const getUserInfo = async () => {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('token')
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+        'Cache-Control': 'no-store',
+        Pragma: 'no-store',
+        Expires: '0',
+
       },
       cache: 'no-cache' // 캐시를 비우는 옵션 추가
     });
@@ -18,8 +22,9 @@ export const getUserInfo = async () => {
     if (response.status !== 200) {
       throw new Error('bad server condition');
     }
-
+    console.log("getUserInfo 로그인 여부: ", response);
     return response.data; // response.data로 수정
+
   } catch (e) {
     console.error('getUserInfo Error: ', e.message);
     return false;
