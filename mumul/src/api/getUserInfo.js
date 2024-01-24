@@ -11,7 +11,8 @@ export const getUserInfo = async () => {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('token'),
-        
+        'Access-Control-Allow-Origin': "*",
+        'Access-Control-Allow-Credentials':"true",
         // 'Cache-Control': 'no-store',
         // Pragma: 'no-store',
         // Expires: '0',
