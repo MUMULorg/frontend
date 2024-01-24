@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 export const getUserInfo = async () => {
-  const path = "https://api-mumul.site/v1/oauth/user/info";
+  const path = "/v1/oauth/user/info";
 
   try {
     const response = await axios.get(path, {
