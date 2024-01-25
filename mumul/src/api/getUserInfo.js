@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 export const getUserInfo = async () => {
-  const path = "/v1/oauth/user/info";
+  const path = "https://api-mumul.site/v1/oauth/user/info";
 
   try {
     const response = await axios.get(path, {
@@ -13,9 +13,9 @@ export const getUserInfo = async () => {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
         'Access-Control-Allow-Origin': "*",
         'Access-Control-Allow-Credentials':"true",
-        // 'Cache-Control': 'no-store',
-        // Pragma: 'no-store',
-        // Expires: '0',
+        'Cache-Control': 'no-store',
+        Pragma: 'no-store',
+        Expires: '0'
 
       },
       cache: 'no-cache' // 캐시를 비우는 옵션 추가
