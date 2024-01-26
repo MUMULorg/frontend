@@ -23,6 +23,8 @@ function App() {
   useEffect(() => {
     const initUserInfo = async () => {
       const response = await getUserInfo();
+
+  console.log("APP.js 로그인여부: "+ response);
       if(response === false) {
         setIsLogin(false);
         return;
@@ -32,8 +34,6 @@ function App() {
     };
     initUserInfo();
   }, [isLogin, setIsLogin]);
-
-  console.log("APP.js 로그인여부: "+ isLogin);
 
   return (
     <BrowserRouter>

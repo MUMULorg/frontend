@@ -16,7 +16,7 @@ export const getUserInfo = async () => {
     if (response.status !== 200) {
       throw new Error('bad server condition');
     }
-    console.log("getUserInfo 로그인 여부: ", response);
+    console.log("getUserInfo 로그인 여부: ", response.data);
     return response.data; // response.data로 수정
 
   } catch (e) {
