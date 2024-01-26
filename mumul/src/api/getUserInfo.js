@@ -1,10 +1,11 @@
 import axios from "axios";
+import baseUrl from "./baseUrl";
 
 export const getUserInfo = async () => {
   const path = "/v1/oauth/user/info";
 
   try {
-    const response = await axios.get(path, {
+    const response = await baseUrl.get(path, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
