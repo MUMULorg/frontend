@@ -16,6 +16,7 @@
         "@types/react": "^17.0.75",
         "@types/react-dom": "^17.0.25",
         "axios": "^1.4.0",
+        "cors": "^2.8.5",
         "css-select": "^5.1.0",
         "http-proxy-middleware": "^2.0.6",
         "js-joda": "^1.11.0",

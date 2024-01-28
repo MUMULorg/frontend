@@ -24,8 +24,8 @@ function App() {
     const initUserInfo = async () => {
       const response = await getUserInfo();
 
-  console.log("APP.js 로그인여부: "+ response);
-      if(response === false) {
+      console.log("APP.js 로그인여부: " + response);
+      if (response === false) {
         setIsLogin(false);
         return;
       } else {
@@ -38,14 +38,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Intro isLogin={isLogin} setIsLogin={setIsLogin}/>} />
+        <Route path="/" element={<Intro isLogin={isLogin} setIsLogin={setIsLogin} />} />
         <Route path="/login" element={<Login isLogin={isLogin} setIsLogin={setIsLogin}
-        hasRequestedCallback={hasRequestedCallback} setHasRequestedCallback={setHasRequestedCallback}/>} />
-        <Route exact path="/login/kakao" Component={KakaoAuthHandle}/>
-        <Route path="/:id" element={<Main isLogin={isLogin} setIsLogin={setIsLogin} 
-        followSelected={followSelected} setFollowSelected={setFollowSelected}/>} />
+          hasRequestedCallback={hasRequestedCallback} setHasRequestedCallback={setHasRequestedCallback} />} />
+        <Route exact path="/login/kakao" Component={KakaoAuthHandle} />
+        <Route path="/:id" element={<Main isLogin={isLogin} setIsLogin={setIsLogin}
+          followSelected={followSelected} setFollowSelected={setFollowSelected} />} />
         <Route path="/policy" element={<Policy />} />
-        <Route path="/setting" element={<Setting isLogin={isLogin} setIsLogin={setIsLogin}/>} />
+        <Route path="/setting" element={<Setting isLogin={isLogin} setIsLogin={setIsLogin} />} />
         <Route path="/bookmark" element={<BookMark />} />
         <Route path="*" element={<div>404</div>} />
         <Route path="/health" element={<HealthCheck />} />

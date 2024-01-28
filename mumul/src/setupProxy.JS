@@ -1,11 +1,10 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = function (app) {
-  app.use(
-    "/v1",
-    createProxyMiddleware({
-       target: "https://api-mumul.site",
-      changeOrigin: true,
-    })
-  );
+// global cors policy
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin 
+    .AllowCredentials());
 };
