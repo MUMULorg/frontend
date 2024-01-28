@@ -7,7 +7,7 @@ export const getUserInfo = async () => {
   try {
  
     const response = await axios.get(
-      '/v1/oauth/user/info', {
+      'https://api-mumul.site/v1/oauth/user/info', {
       headers: {
        // "Cache-Control": "no-cache",
         'Content-Type': 'application/json',
