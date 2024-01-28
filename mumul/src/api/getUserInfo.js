@@ -7,12 +7,13 @@ export const getUserInfo = async () => {
   try {
  
     const response = await axios.get(
-      'https://api-mumul.site/v1/oauth/user/info', {
+      '/v1/oauth/user/info', {
       headers: {
        // "Cache-Control": "no-cache",
         'Content-Type': 'application/json',
         Accept: 'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('token'),
+        'Access-Control-Allow-Origin': '*'
       },
       withCredentials: true,
       cache: 'no-cache', // 캐시를 비우는 옵션 추가
