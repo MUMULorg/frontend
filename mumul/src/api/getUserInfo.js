@@ -6,13 +6,12 @@ export const getUserInfo = async () => {
 
   try {
  
-    axios.interceptors.response.use(response => {
-      return response.headers['content-type'] === 'application/json' ? response : Promise.reject(response);
-    }, error => Promise.reject(error));
+    // axios.interceptors.response.use(response => {
+    //   return response.headers['content-type'] === 'application/json' ? response : Promise.reject(response);
+    // }, error => Promise.reject(error));
 
 
-    const response = await axios.get(
-      'https://mumul.site/v1/oauth/user/info', {
+    const response = await axios.get(path, {
       headers: {
        // "Cache-Control": "no-cache",
         'Content-Type': 'application/json',
@@ -25,9 +24,9 @@ export const getUserInfo = async () => {
       },
       // withCredentials: true,
       cache: 'no-cache', // 캐시를 비우는 옵션 추가
-    });
+    })
 
-
+    .then((result) => console.log(result));
     if (response.status !== 200) {
       throw new Error('bad server condition');
     }
