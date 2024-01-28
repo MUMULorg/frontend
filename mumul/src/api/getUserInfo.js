@@ -5,13 +5,17 @@ export const getUserInfo = async () => {
   const path = "/v1/oauth/user/info";
 
   try {
-    const response = await baseUrl.get(path, {
+ 
+    const response = await axios.get(
+      'https://api-mumul.site/v1/oauth/user/info', {
       headers: {
+       // "Cache-Control": "no-cache",
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('token')
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
       },
-      cache: 'no-cache' // 캐시를 비우는 옵션 추가
+      withCredentials: true,
+      cache: 'no-cache', // 캐시를 비우는 옵션 추가
     });
 
     if (response.status !== 200) {
