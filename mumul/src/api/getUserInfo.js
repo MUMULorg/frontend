@@ -2,7 +2,7 @@ import axios from "axios";
 import baseUrl from "./baseUrl";
 
 export const getUserInfo = async () => {
-  const path = "/v1/oauth/user/info";
+  const path = "https://api-mumul.site/v1/oauth/user/info";
 
   try {
  
