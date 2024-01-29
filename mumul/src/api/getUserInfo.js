@@ -9,6 +9,8 @@ export const getUserInfo = async () => {
     // axios.interceptors.response.use(response => {
     //   return response.headers['content-type'] === 'application/json' ? response : Promise.reject(response);
     // }, error => Promise.reject(error));
+    console.log("env: ",process.env.REACT_APP_API_URL);
+    
     const response = await axios.get(process.env.REACT_APP_API_URL + '/v1/oauth/user/info', {
       headers: {
        // "Cache-Control": "no-cache",
