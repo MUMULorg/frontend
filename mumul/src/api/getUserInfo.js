@@ -17,10 +17,6 @@ export const getUserInfo = async () => {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('token'),
-        'Access-Control-Allow-Origin': '*',
-        "Access-Control-Allow-Methods": "*",
-        "Access-Control-Allow-Headers": "*",
-        "Access-Control-Allow-Credentials": false,
       },
       // withCredentials: true,
       cache: 'no-cache', // 캐시를 비우는 옵션 추가
