@@ -2,7 +2,7 @@ import axios from "axios";
 import baseUrl from "./baseUrl";
 
 export const getUserInfo = async () => {
-  const path = "https://api-mumul.site/v1/oauth/user/info";
+  const path = 'https://api-mumul.site/v1/oauth/user/info';
 
   try {
  
@@ -10,8 +10,8 @@ export const getUserInfo = async () => {
     //   return response.headers['content-type'] === 'application/json' ? response : Promise.reject(response);
     // }, error => Promise.reject(error));
     console.log("env: ",process.env.REACT_APP_API_URL);
-    
-    const response = await axios.get(process.env.REACT_APP_API_URL + '/v1/oauth/user/info', {
+
+    const response = await axios.get(path, {
       headers: {
        // "Cache-Control": "no-cache",
         'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export const getUserInfo = async () => {
       cache: 'no-cache', // 캐시를 비우는 옵션 추가
     })
 
-    .then((result) => console.log(result));
+    .then((result) => console.log(result.data));
 
     if (response.status !== 200) {
       throw new Error('bad server condition');
