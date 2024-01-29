@@ -9,9 +9,7 @@ export const getUserInfo = async () => {
     // axios.interceptors.response.use(response => {
     //   return response.headers['content-type'] === 'application/json' ? response : Promise.reject(response);
     // }, error => Promise.reject(error));
-
-
-    const response = await axios.get(path, {
+    const response = await axios.get(process.env.REACT_APP_API_URL + '/v1/oauth/user/info', {
       headers: {
        // "Cache-Control": "no-cache",
         'Content-Type': 'application/json',
@@ -23,6 +21,7 @@ export const getUserInfo = async () => {
     })
 
     .then((result) => console.log(result));
+
     if (response.status !== 200) {
       throw new Error('bad server condition');
     }
