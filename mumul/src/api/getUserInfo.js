@@ -2,19 +2,13 @@ import axios from "axios";
 import baseUrl from "./baseUrl";
 
 export const getUserInfo = async () => {
-  const path = 'https://api-mumul.site/v1/oauth/user/info';
+  const path = '/v1/oauth/user/info';
 
-  try {
- 
-    // axios.interceptors.response.use(response => {
-    //   return response.headers['content-type'] === 'application/json' ? response : Promise.reject(response);
-    // }, error => Promise.reject(error));
-    console.log("env: ",process.env.REACT_APP_API_URL);
-
+  try { 
     const response = await axios.get(path, {
       headers: {
-       // "Cache-Control": "no-cache",
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
         Accept: 'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       },
