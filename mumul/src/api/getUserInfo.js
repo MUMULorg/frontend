@@ -3,7 +3,7 @@ import baseUrl from "./baseUrl";
 
 export const getUserInfo = async () => {
   const path = 'https://api-mumul.site/v1/oauth/user/info';
-  axios.defaults.withCredentials = true; // withCredentials 전역 설정
+  // axios.defaults.withCredentials = true; // withCredentials 전역 설정
 
   try { 
     const response = await axios.get(path, {
@@ -12,14 +12,10 @@ export const getUserInfo = async () => {
         'Accept': 'application/json',
         Accept: 'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('token'),
-        withCredentials: true 
       },
-      withCredentials: true ,
-      // withCredentials: true,
+      withCredentials: true, // 이 부분을 명시적으로 설정
       cache: 'no-cache', // 캐시를 비우는 옵션 추가
     })
-
-    .then((result) => console.log(result.data));
 
     if (response.status !== 200) {
       throw new Error('bad server condition');
