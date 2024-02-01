@@ -35,7 +35,7 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
     if (!isLogin && !hasRequestedCallback && codeFromURL) {
       setHasRequestedCallback(true);
       axios
-        .get(`/v1/oauth/login/callback?code=${codeFromURL}`, {
+        .get(`https://api-mumul.site/v1/oauth/login/callback?code=${codeFromURL}`, {
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
