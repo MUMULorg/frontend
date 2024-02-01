@@ -30,12 +30,17 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
     const queryParams = new URLSearchParams(window.location.search);
     const codeFromURL = queryParams.get("code");
 
+
+    console.log(" codeFromURL: ", codeFromURL);
+
     console.log("login.js 로그인여부 1 : "+ isLogin);
 
     if (!isLogin && !hasRequestedCallback && codeFromURL) {
       console.log("Login 로그인 false여서 로그인 실행함 1");
       setHasRequestedCallback(true);
       console.log("Login 로그인 false여서 로그인 실행함 2");
+
+
       axios
         .get(`https://api-mumul.site/v1/oauth/login/callback?code=${codeFromURL}`, {
           headers: {
@@ -48,13 +53,24 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
         
         .then(response => {
           console.log("Login 로그인 false여서 로그인 실행함 3");
-          const authToken = response.headers['authorization'];
+
+          const authToken = response.headers['authorization'];  // 응답헤더에서 토큰 받기
+          const refreshToken = response.headers['refresh']; // 응답헤더에서 토큰 받기
+
+          console.log("Login 의 authToken: ",authToken);
+          console.log('refresh 토큰 :', refreshToken);
 
           console.log("Login 로그인 false여서 로그인 실행함 4");
-
+          
+          setLocalStorage('token', accessToken); // 토큰 localStorage에 저장
           localStorage.setItem('token', authToken);
+
+          axios.defaults.headers.common[
+            'Authorization'
+          ] = `Bearer ${accessToken}`;
+
           console.log("Login 로그인 false여서 로그인 실행함 5");
-          console.log("Login 의 authToken: ",authToken);
+          
           setIsLogin(true);
           console.log("Login 로그인 false여서 로그인 실행함 6");
           console.log("Login true됨");
