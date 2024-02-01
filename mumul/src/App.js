@@ -19,7 +19,10 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [followSelected, setFollowSelected] = useState(true);
   const [hasRequestedCallback, setHasRequestedCallback] = useState(false);
+
+  const token = localStorage.getItem('token');
   console.log("App.js token: ", token);
+  
   useEffect(() => {
     const initUserInfo = async () => {
       const response = await getUserInfo();
