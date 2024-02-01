@@ -21,10 +21,12 @@ export const postLoginToken = async (idToken) => {
 
     // JWT 값을 스토리지에 저장합니다.
     localStorage.setItem('token', jwtToken);
+    console.log("login set token: "+jwtToken);
 
     return true;
   } catch (e) {
     console.error('postLoginToken Error: ', e.message);
+    console.error('Login Response errr:', e.response.data); // 에러 응답 확인
     return false;
   }
 };

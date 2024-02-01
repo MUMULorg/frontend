@@ -19,16 +19,17 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [followSelected, setFollowSelected] = useState(true);
   const [hasRequestedCallback, setHasRequestedCallback] = useState(false);
-
+  console.log("App.js token: ", token);
   useEffect(() => {
     const initUserInfo = async () => {
       const response = await getUserInfo();
 
-      console.log("APP.js 로그인여부: " + response);
       if (response === false) {
+        console.log("로그인 false");
         setIsLogin(false);
         return;
       } else {
+        console.log("로그인 true");
         setIsLogin(true);
       }
     };

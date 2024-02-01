@@ -33,6 +33,7 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
     console.log("login.js 로그인여부 1 : "+ isLogin);
 
     if (!isLogin && !hasRequestedCallback && codeFromURL) {
+      console.log("Login 로그인 false여서 로그인 실행함");
       setHasRequestedCallback(true);
       axios
         .get(`https://api-mumul.site/v1/oauth/login/callback?code=${codeFromURL}`, {
@@ -47,25 +48,30 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
           const authToken = response.headers['authorization'];
 
           localStorage.setItem('token', authToken);
+          console.log("Login 의 authToken: ",authToken);
           setIsLogin(true);
+          console.log("Login true됨");
         })
         .catch((error) => {
-          console.error(error);
+          console.error("Login.js login err: ", error);
         });
     }
 
   console.log("login.js 로그인여부 2: "+ isLogin);
    
     if (isLogin) {
+      console.log("Login.js 로그인 true임");
       const initLogin = async () => {
         const userInfo = await getUserInfo();
         console.log("userInfo: ",userInfo);
         console.log("userInfo.userId: ",userInfo.userId);
         if (userInfo === false) {
+          console.log("Login.js 로그인 true인데 저장된 userInfo는 없음 false");
           setIsLogin(false);
         }
        
         navigate(`/${userInfo.userId}`);
+        console.log("Login.js 로그인 true, 저장된 userInfo있어서 자동 네비게이터");
         setHasRequestedCallback(false);
       };
       initLogin();
