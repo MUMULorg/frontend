@@ -62,12 +62,11 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
 
           console.log("Login 로그인 false여서 로그인 실행함 4");
           
-          setLocalStorage('token', accessToken); // 토큰 localStorage에 저장
           localStorage.setItem('token', authToken);
 
           axios.defaults.headers.common[
             'Authorization'
-          ] = `Bearer ${accessToken}`;
+          ] = `Bearer ${authToken}`;
 
           console.log("Login 로그인 false여서 로그인 실행함 5");
           
