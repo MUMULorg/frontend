@@ -33,8 +33,9 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
     console.log("login.js 로그인여부 1 : "+ isLogin);
 
     if (!isLogin && !hasRequestedCallback && codeFromURL) {
-      console.log("Login 로그인 false여서 로그인 실행함");
+      console.log("Login 로그인 false여서 로그인 실행함 1");
       setHasRequestedCallback(true);
+      console.log("Login 로그인 false여서 로그인 실행함 2");
       axios
         .get(`https://api-mumul.site/v1/oauth/login/callback?code=${codeFromURL}`, {
           headers: {
@@ -44,12 +45,18 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
           withCredentials: true,
           crossDomain: true,
         })
+        
         .then(response => {
+          console.log("Login 로그인 false여서 로그인 실행함 3");
           const authToken = response.headers['authorization'];
 
+          console.log("Login 로그인 false여서 로그인 실행함 4");
+
           localStorage.setItem('token', authToken);
+          console.log("Login 로그인 false여서 로그인 실행함 5");
           console.log("Login 의 authToken: ",authToken);
           setIsLogin(true);
+          console.log("Login 로그인 false여서 로그인 실행함 6");
           console.log("Login true됨");
         })
         .catch((error) => {

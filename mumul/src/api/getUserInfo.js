@@ -12,7 +12,7 @@ export const getUserInfo = async () => {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         Accept: 'application/json',
-        Authorization: 'Bearer ' + `Bearer ${token}`,
+        Authorization: 'Bearer ' + token,
       },
       cache: 'no-cache', // 캐시를 비우는 옵션 추가
     })
