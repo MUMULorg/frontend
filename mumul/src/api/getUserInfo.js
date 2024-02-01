@@ -15,7 +15,7 @@ export const getUserInfo = async () => {
         Accept: 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      withCredentials: true,   //refreshToken을 위해서 필요한 설정!!
+    // withCredentials: true,   //refreshToken을 위해서 필요한 설정!!
       cache: 'no-cache', // 캐시를 비우는 옵션 추가
     })
 
