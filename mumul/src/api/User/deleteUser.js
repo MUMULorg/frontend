@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const deleteUser = async (userId) => {
-    const path = `/v1/oauth/user/secession/${userId}`;
+    const path = `https://api-mumul.site/v1/oauth/user/secession/${userId}`;
     const token = localStorage.getItem('token');
 
     try {

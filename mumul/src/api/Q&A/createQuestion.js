@@ -6,7 +6,7 @@ export const createQuestion = async (info, id, currentUserInfo, questionText, bt
   const token = localStorage.getItem('token');
   try {
     await axios.post(
-      `/spaces/${id}/question/create`,
+      `https://api-mumul.site/spaces/${id}/question/create`,
       {
         sentUserPic: randomImage,
         sendingUserId: currentUserInfo.userId,

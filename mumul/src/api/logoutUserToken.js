@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const logoutUserToken = async () => {
-    const path = '/v1/oauth/logout';
+    const path = 'https://api-mumul.site/v1/oauth/logout';
 
     try {
         const response = await axios.post(`${path}`, null, {

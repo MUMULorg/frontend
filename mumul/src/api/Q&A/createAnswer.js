@@ -6,7 +6,7 @@ export const createAnswer = async (id, currentUserInfo, answerText, btn, questio
 
   try {
     const response = await axios.post(
-      `/spaces/${id}/${questionId}/answer/create`,
+      `https://api-mumul.site/spaces/${id}/${questionId}/answer/create`,
       {
         isPublic: btn,
         sentUserPic: currentUserInfo.picture,

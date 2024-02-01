@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getSentComment = async (spaceId) => {
-    const path = `/spaces/${spaceId}/sent/get`;
+    const path = `https://api-mumul.site/spaces/${spaceId}/sent/get`;
 
     try {
         const response = await axios.get(path,{

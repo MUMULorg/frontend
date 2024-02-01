@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const putStopSpace = async (currentUserId, stopSpace) => {
-    const path = '/v1/oauth/user/spaceStop/' + currentUserId;
+    const path = 'https://api-mumul.site/v1/oauth/user/spaceStop/' + currentUserId;
     const token = localStorage.getItem('token');
 
   try {

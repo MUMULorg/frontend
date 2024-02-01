@@ -1,6 +1,6 @@
 import axios from "axios";
 export const getFollowerList = async (spaceId) => {
-    const path = `/getFollow/follower/${spaceId}`;
+    const path = `https://api-mumul.site/getFollow/follower/${spaceId}`;
     const token = localStorage.getItem('token');
 
     try {

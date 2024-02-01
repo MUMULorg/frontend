@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const postLoginToken = async (idToken) => {
-  const path = '/v1/oauth/login';
+  const path = 'https://api-mumul.site/v1/oauth/login';
 
   try {
     const response = await axios.post(path, idToken, {

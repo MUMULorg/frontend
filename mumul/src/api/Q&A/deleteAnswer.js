@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const deleteAnswer = async (spaceId, answerId, userId) => {
-    const path = `/spaces/${spaceId}/${answerId}/${userId}/answer/delete`;
+    const path = `https://api-mumul.site/spaces/${spaceId}/${answerId}/${userId}/answer/delete`;
 
     try {
         const response = await axios.delete(
