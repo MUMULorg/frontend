@@ -57,9 +57,7 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
 
           const authToken = response.headers['Authorization'];  // 응답헤더에서 토큰 받기
       
-
           console.log("Login 의 authToken: ", authToken);
-          console.log('refresh 토큰 :', refreshToken);
 
           console.log("Login 로그인 false여서 로그인 실행함 4");
 
