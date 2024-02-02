@@ -46,7 +46,7 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            // Authorization: 'Bearer ' + localStorage.getItem('token')
+           
           },
           withCredentials: true,
           crossDomain: true,
@@ -55,8 +55,8 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
         .then(response => {
           console.log("Login 로그인 false여서 로그인 실행함 3");
 
-          const authToken = response.headers['authorization'];  // 응답헤더에서 토큰 받기
-          const refreshToken = response.headers['refresh']; // 응답헤더에서 토큰 받기
+          const authToken = response.headers['Authorization'];  // 응답헤더에서 토큰 받기
+      
 
           console.log("Login 의 authToken: ", authToken);
           console.log('refresh 토큰 :', refreshToken);
@@ -72,7 +72,7 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
           console.log("Login 로그인 false여서 로그인 실행함 5");
 
           setIsLogin(true);
-          
+
           console.log("Login 로그인 false여서 로그인 실행함 6");
           console.log("Login true됨");
         })
