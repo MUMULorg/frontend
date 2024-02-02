@@ -24,7 +24,7 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
 
   const kakaoLogin = () => {
     window.location.href = KAKAO_AUTH_URL;
-}
+  }
 
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
@@ -33,7 +33,7 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
 
     console.log(" codeFromURL: ", codeFromURL);
 
-    console.log("login.js 로그인여부 1 : "+ isLogin);
+    console.log("login.js 로그인여부 1 : " + isLogin);
 
     if (!isLogin && !hasRequestedCallback && codeFromURL) {
       console.log("Login 로그인 false여서 로그인 실행함 1");
@@ -46,31 +46,33 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
+            // Authorization: 'Bearer ' + localStorage.getItem('token')
           },
           withCredentials: true,
           crossDomain: true,
         })
-        
+
         .then(response => {
           console.log("Login 로그인 false여서 로그인 실행함 3");
 
           const authToken = response.headers['authorization'];  // 응답헤더에서 토큰 받기
           const refreshToken = response.headers['refresh']; // 응답헤더에서 토큰 받기
 
-          console.log("Login 의 authToken: ",authToken);
+          console.log("Login 의 authToken: ", authToken);
           console.log('refresh 토큰 :', refreshToken);
 
           console.log("Login 로그인 false여서 로그인 실행함 4");
-          
+
           localStorage.setItem('token', authToken);
 
-          axios.defaults.headers.common[
-            'Authorization'
-          ] = `Bearer ${authToken}`;
+          // axios.defaults.headers.common[
+          //   'Authorization'
+          // ] = `Bearer ${authToken}`;
 
           console.log("Login 로그인 false여서 로그인 실행함 5");
-          
+
           setIsLogin(true);
+          
           console.log("Login 로그인 false여서 로그인 실행함 6");
           console.log("Login true됨");
         })
@@ -79,19 +81,19 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
         });
     }
 
-  console.log("login.js 로그인여부 2: "+ isLogin);
-   
+    console.log("login.js 로그인여부 2: " + isLogin);
+
     if (isLogin) {
       console.log("Login.js 로그인 true임");
       const initLogin = async () => {
         const userInfo = await getUserInfo();
-        console.log("userInfo: ",userInfo);
-        console.log("userInfo.userId: ",userInfo.userId);
+        console.log("userInfo: ", userInfo);
+        console.log("userInfo.userId: ", userInfo.userId);
         if (userInfo === false) {
           console.log("Login.js 로그인 true인데 저장된 userInfo는 없음 false");
           setIsLogin(false);
         }
-       
+
         navigate(`/${userInfo.userId}`);
         console.log("Login.js 로그인 true, 저장된 userInfo있어서 자동 네비게이터");
         setHasRequestedCallback(false);
@@ -120,14 +122,14 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
               <p className="loginDecs">MUMUL 스페이스를 만드려면 로그인을 해야 돼</p>
             </div>
             <div className="buttonWrap">
-            <button onClick={kakaoLogin}>
-              <img src={Cacao} alt="" />
-              Kakao 계정으로 계속
-            </button>
-            <button onClick={GoogleSocialLogin}>
-              <img src={Goggle} alt="" />
-              Google 계정으로 계속
-            </button>
+              <button onClick={kakaoLogin}>
+                <img src={Cacao} alt="" />
+                Kakao 계정으로 계속
+              </button>
+              <button onClick={GoogleSocialLogin}>
+                <img src={Goggle} alt="" />
+                Google 계정으로 계속
+              </button>
             </div>
           </div>
         </div>
@@ -136,11 +138,11 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
   );
 };
 
-Login.propTypes={
+Login.propTypes = {
   isLogin: PropTypes.any.isRequired,
   setIsLogin: PropTypes.any.isRequired,
-  hasRequestedCallback: PropTypes.any.isRequired,  
-  setHasRequestedCallback: PropTypes.any.isRequired,    
+  hasRequestedCallback: PropTypes.any.isRequired,
+  setHasRequestedCallback: PropTypes.any.isRequired,
 }
 
 

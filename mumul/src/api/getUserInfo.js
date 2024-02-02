@@ -4,7 +4,6 @@ import baseUrl from "./baseUrl";
 export const getUserInfo = async () => {
   const path = 'https://api-mumul.site/v1/oauth/user/info';
  // axios.defaults.withCredentials = true; // withCredentials 전역 설정
-  const token = localStorage.getItem('token');
   console.log("getUserInfo token: ", token);
 
   try { 
@@ -13,7 +12,7 @@ export const getUserInfo = async () => {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         Accept: 'application/json',
-        Authorization: `Bearer ${token}`,
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
       },
     // withCredentials: true,   //refreshToken을 위해서 필요한 설정!!
       cache: 'no-cache', // 캐시를 비우는 옵션 추가
