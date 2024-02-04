@@ -3,8 +3,9 @@ import { LocalDateTime } from "js-joda";
 
 
 export const createQuestion = async (info, id, currentUserInfo, questionText, btn, randomImage) => {
-  const token = localStorage.getItem('token');
   try {
+  const token = localStorage.getItem('token');
+  
     await axios.post(
       `https://api-mumul.site/spaces/${id}/question/create`,
       {

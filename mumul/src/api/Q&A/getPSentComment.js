@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const getPSentComment = async (spaceId, page, pageSize) => {
-    const path = `https://api-mumul.site/spaces/${spaceId}/sent/get?page=${page}&size=${pageSize}`;
-
     try {
+    const path = `https://api-mumul.site/spaces/${spaceId}/sent/get?page=${page}&size=${pageSize}`;
+    
         const response = await axios.get(path,{
             headers: {
                 'Content-Type': 'application/json',
