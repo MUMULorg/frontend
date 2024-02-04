@@ -54,7 +54,7 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
 
         .then(response => {
           
-          console.log("Login 전체 응답: ", response);
+          console.log("Login 전체 응답: ", response.data);
 
           console.log("Authorization 헤더 출력: ",response.headers.get('Authorization'));
 
@@ -64,12 +64,14 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
           console.log("Login 로그인 false여서 로그인 실행함 3");
 
           const authToken = response.headers['Authorization'];  // 응답헤더에서 토큰 받기
+
+          const authToken_=response.headers.get('Authorization');
       
           console.log("Login 의 authToken: ", authToken);
 
           console.log("Login 로그인 false여서 로그인 실행함 4");
 
-          localStorage.setItem('token', authToken);
+          localStorage.setItem('token', authToken_);
 
           // axios.defaults.headers.common[
           //   'Authorization'
