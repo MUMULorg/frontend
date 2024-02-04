@@ -34,6 +34,8 @@ function Main({isLogin, setIsLogin, followSelected, setFollowSelected}) {
     spaceStop: '',
   });
 
+ 
+
   useEffect(() => {
     const initUserInfo = async () => {
       console.log("Main.js id: ",id); //3 으로 출력됐어
@@ -75,7 +77,8 @@ function Main({isLogin, setIsLogin, followSelected, setFollowSelected}) {
     },
   ];
 
-
+  console.log("Main spaceUserInfo: ", info);
+  console.log("Main spaceUserInfo.userId: ", info.userId);
   return (
     <div className="wrap">
       {isNotFound ? (

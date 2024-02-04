@@ -18,6 +18,9 @@ function QuestionerProfile({ spaceUserInfo, currentUserInfo, followSelected, set
   const [followerNumber, setFollowerNumber] = useState(null);
   const [followerList, setFollowerList] = useState([]);
   const [isCurrentUserFollowing, setIsCurrentUserFollowing] = useState(false);
+  
+  console.log("QuestionerProfile spaceUserInfo: ",spaceUserInfo);
+  console.log("QuestionerProfile spaceUserInfo userId: ",spaceUserInfo.userId);
 
   const onClickFollowing = () => {
     setFollowSelected(true);
