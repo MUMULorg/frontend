@@ -36,6 +36,7 @@ function Main({isLogin, setIsLogin, followSelected, setFollowSelected}) {
 
   useEffect(() => {
     const initUserInfo = async () => {
+      console.log("Main.js id: ",id);
       const newInfo = await getSpaceInfo(id);
       const token = localStorage.getItem('token');
   

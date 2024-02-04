@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const getSpaceInfo = async (spaceId) => {
+  console.log("getspaceinfo: ",spaceId);
     const path = 'https://api-mumul.site/spaces/' + spaceId;
     const token = localStorage.getItem('token');
 
