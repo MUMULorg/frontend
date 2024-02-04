@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getSpaceInfo = async (spaceId) => {
   console.log("getspaceinfo: ",spaceId);
-    const path = 'https://api-mumul.site/spaces/' + spaceId;
+    const path = `https://api-mumul.site/spaces/${spaceId}`;
     const token = localStorage.getItem('token');
 
     try {
@@ -10,7 +10,7 @@ export const getSpaceInfo = async (spaceId) => {
             headers: {
               'Content-Type': 'application/json',
               Accept: 'application/json',
-              Authorization: 'Bearer ' + token
+              Authorization: 'Bearer ' + localStorage.getItem('token'),
             }
           });
         return response.data;

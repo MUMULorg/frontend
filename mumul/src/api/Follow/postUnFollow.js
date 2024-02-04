@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const postUnFollow = async (spaceId) => {
-    const path = 'https://api-mumul.site/unFollow/' + spaceId;
+    const path = `https://api-mumul.site/unFollow/${spaceId}`;
     const token = localStorage.getItem('token');
 
     try {
