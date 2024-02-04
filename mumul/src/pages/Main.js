@@ -48,12 +48,14 @@ function Main({isLogin, setIsLogin, followSelected, setFollowSelected}) {
           setIsLogin(false);
         }
         setCurrentUserInfo(userInfo);
+        console.log("Current User Info:", userInfo); // 콘솔 로그 추가
       }
       if (newInfo === false) {
         setIsNotFound(true);
       } else {
         setIsNotFound(false);
         setInfo(newInfo);
+        console.log("Space Info:", newInfo); // 콘솔 로그 추가
       }
     };
   
@@ -79,6 +81,7 @@ function Main({isLogin, setIsLogin, followSelected, setFollowSelected}) {
 
   console.log("Main spaceUserInfo: ", info);
   console.log("Main spaceUserInfo.userId: ", info.userId);
+
   return (
     <div className="wrap">
       {isNotFound ? (

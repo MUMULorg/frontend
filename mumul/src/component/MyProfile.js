@@ -7,6 +7,8 @@ import Storyslide from "./Storyslide";
 import PropTypes from 'prop-types';
 
 function MyProfile({ currentUserInfo, followSelected, setFollowSelected }) {
+  console.log("MyProfile currentUserInfo userId: ", currentUserInfo.userId);
+
   const [modal, setModal] = useState(false);
   const [followingNumber, setFollowingNumber] = useState(null);
   const [followerNumber, setFollowerNumber] = useState(null);
@@ -29,9 +31,11 @@ function MyProfile({ currentUserInfo, followSelected, setFollowSelected }) {
   }
 
   useEffect(() => {
+    console.log("****** userid: ", currentUserInfo.userId);
     if(currentUserInfo.userId === '' || currentUserInfo.userId === undefined) {
       return;
-    } else {getFollowingNumber(currentUserInfo.userId)
+    } else {
+      getFollowingNumber(currentUserInfo.userId) //
       .then((result) => {
         setFollowingNumber(result);
       })
@@ -45,7 +49,7 @@ function MyProfile({ currentUserInfo, followSelected, setFollowSelected }) {
       .catch((error) => {
         console.error('getFollowerNumber Error: ', error.message)
       })
-    getFollowerList(currentUserInfo.userId)
+    getFollowerList(currentUserInfo.userId) //
       .then((result) => {
         setFollowerList(result);
       })

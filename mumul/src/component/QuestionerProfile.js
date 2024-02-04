@@ -12,15 +12,15 @@ import { getFollwerNumber } from "../api/Follow/getFollowerNumber";
 import { getFollowerList } from "../api/Follow/getFollowerList";
 
 function QuestionerProfile({ spaceUserInfo, currentUserInfo, followSelected, setFollowSelected, isLogin }) {
+  console.log("QuestionerProfile spaceUserInfo: ",spaceUserInfo);
+  console.log("QuestionerProfile spaceUserInfo userId: ",spaceUserInfo.userId);
+  
   const [queModal, setQueModal] = useState(false);
   const [isFollowing, setIsFollowing] = useState(false);
   const [followingNumber, setFollowingNumber] = useState(null);
   const [followerNumber, setFollowerNumber] = useState(null);
   const [followerList, setFollowerList] = useState([]);
   const [isCurrentUserFollowing, setIsCurrentUserFollowing] = useState(false);
-  
-  console.log("QuestionerProfile spaceUserInfo: ",spaceUserInfo);
-  console.log("QuestionerProfile spaceUserInfo userId: ",spaceUserInfo.userId);
 
   const onClickFollowing = () => {
     setFollowSelected(true);
@@ -32,6 +32,7 @@ function QuestionerProfile({ spaceUserInfo, currentUserInfo, followSelected, set
 
   useEffect(() => {
     if (isLogin === true) {
+      console.log("////////// userid: ", spaceUserInfo.userId);
       getIsFollow(spaceUserInfo.userId)
         .then((result) => {
           setIsFollowing(result);
@@ -47,6 +48,8 @@ function QuestionerProfile({ spaceUserInfo, currentUserInfo, followSelected, set
           console.error('getIsFollow Error: ', error.message);
         });
     }
+    console.log("//////////-------------- userid: ", spaceUserInfo.userId);
+
       getFollowingNumber(spaceUserInfo.userId)
         .then((result) => {
           setFollowingNumber(result);
@@ -117,6 +120,8 @@ function QuestionerProfile({ spaceUserInfo, currentUserInfo, followSelected, set
     }
     setIsFollowing(!isFollowing);
   };
+
+    
 
   return (
     <>
