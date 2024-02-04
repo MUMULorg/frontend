@@ -1,9 +1,7 @@
 import axios from "axios";
-import baseUrl from "./baseUrl";
 
 export const getUserInfo = async () => {
   const path = 'https://api-mumul.site/v1/oauth/user/info';
- // axios.defaults.withCredentials = true; // withCredentials 전역 설정
   console.log("getUserInfo token: ", localStorage.getItem('token'));
 
   try { 
