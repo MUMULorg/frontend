@@ -53,6 +53,14 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
         })
 
         .then(response => {
+          
+          console.log("Login 전체 응답: ", response);
+
+          console.log("Authorization 헤더 출력: ",response.headers.get('Authorization'));
+
+          console.log("Authorization 헤더값 존재여부: ",response.headers.has('Authorization'));
+
+
           console.log("Login 로그인 false여서 로그인 실행함 3");
 
           const authToken = response.headers['Authorization'];  // 응답헤더에서 토큰 받기
