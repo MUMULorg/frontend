@@ -4,17 +4,17 @@ export const getPReceivedComment = async (spaceId, page, pageSize) => {
     try {
         console.log(`spaceId는 ${spaceId}, page는 ${page} pageSize는 ${pageSize}`);
     
-        if(spaceId ==''){
+        if(spaceId ===''){
             console.log("spaceId null");
-            return false;
+            
         }
-        else if(page ==''){
+        else if(page ===''){
             console.log("page null");
-            return false;
+        
         }
-        else if(pageSize==''){
+        else if(pageSize===''){
             console.log("pageSize null");
-            return false;
+          
         }else{
             const path = `https://api-mumul.site/spaces/${spaceId}/received/get?page=${page}&size=${pageSize}`;
 

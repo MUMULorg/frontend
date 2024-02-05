@@ -8,7 +8,7 @@ export const getSpaceInfo = async (spaceId) => {
     console.log("getSpaceInfo token: ", localStorage.getItem('token'));
 
    
-      if(spaceId ==''){
+      if(spaceId ===''){
         console.log("spaceInfo의 spaceId가 '' 여서 스페이스 못 불러옴;;")
         return false;
       }else{
