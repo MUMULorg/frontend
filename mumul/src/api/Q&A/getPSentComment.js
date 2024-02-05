@@ -3,11 +3,21 @@ import axios from "axios";
 export const getPSentComment = async (spaceId, page, pageSize) => {
     try {
     const path = `https://api-mumul.site/spaces/${spaceId}/sent/get?page=${page}&size=${pageSize}`;
+    console.log(`spaceId는 ${spaceId}, page는 ${page} pageSize는 ${pageSize}`);
     
-    if(spaceId ==''||page ==''||pageSize==''){
-        console.log("셋 중 하나 null");
+    if(spaceId ==''){
+        console.log("spaceId null");
         return false;
-    }else{
+    }
+    else if(page ==''){
+        console.log("page null");
+        return false;
+    }
+    else if(pageSize==''){
+        console.log("pageSize null");
+        return false;
+    }
+    else{
         const response = await axios.get(`https://api-mumul.site/spaces/${spaceId}/sent/get?page=${page}&size=${pageSize}`,{
             headers: {
                 'Content-Type': 'application/json',

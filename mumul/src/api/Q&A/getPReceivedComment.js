@@ -2,18 +2,34 @@ import axios from "axios";
 
 export const getPReceivedComment = async (spaceId, page, pageSize) => {
     try {
-        const path = `https://api-mumul.site/spaces/${spaceId}/received/get?page=${page}&size=${pageSize}`;
+        console.log(`spaceId는 ${spaceId}, page는 ${page} pageSize는 ${pageSize}`);
+    
+        if(spaceId ==''){
+            console.log("spaceId null");
+            return false;
+        }
+        else if(page ==''){
+            console.log("page null");
+            return false;
+        }
+        else if(pageSize==''){
+            console.log("pageSize null");
+            return false;
+        }else{
+            const path = `https://api-mumul.site/spaces/${spaceId}/received/get?page=${page}&size=${pageSize}`;
 
-        const response = await axios.get(`https://api-mumul.site/spaces/${spaceId}/received/get?page=${page}&size=${pageSize}`, {
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-                Authorization: 'Bearer ' + localStorage.getItem('token')
-            }
-        });
-
-        console.log("get_p_received_com 응답데이터: ",response.data);
-        return response.data;
+            const response = await axios.get(`https://api-mumul.site/spaces/${spaceId}/received/get?page=${page}&size=${pageSize}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
+                }
+            });
+    
+            console.log("get_p_received_com 응답데이터: ",response.data);
+            return response.data;
+        }
+      
     } catch (e) {
         console.error('Error retrieving received comments:', e.message);
         return false;
