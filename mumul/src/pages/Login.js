@@ -46,6 +46,7 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
+            //Authorization: 'Bearer ' + localStorage.getItem('token'),
           },
           withCredentials: true, //-> cors 문제 해결 위해 일단 주석처리
           crossDomain: true,
@@ -68,10 +69,13 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
             console.log("Login 의 authToken_: ", authToken_);
             console.log("res.headers['authorization']: ", response.headers['authorization']);
             console.log("response.headers.get('authorization'): ", response.headers.get('authorization'));
+            console.log("response.headers.Authorization: ", response.headers.Authorization);
+            console.log("response.headers.authorization: ", response.headers.authorization);
+
             console.log("headers 전체 출력: ", response.headers);
   
   
-            localStorage.setItem('token', authToken_);
+            window.localStorage.setItem('token', authToken_);
   
             // axios.defaults.headers.common[
             //   'Authorization'
