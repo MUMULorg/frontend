@@ -46,46 +46,62 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-           
           },
-         // withCredentials: true, -> cors 문제 해결 위해 일단 주석처리
+          withCredentials: true, //-> cors 문제 해결 위해 일단 주석처리
           crossDomain: true,
         })
 
         .then(response => {
+          if(response.status===200){
+            console.log("Login 전체 응답: ", response.data);
+
+            console.log("Authorization 헤더 출력: ",response.headers.get('Authorization'));
+  
+            console.log("Authorization 헤더값 존재여부: ",response.headers.has('Authorization'));
+  
+
+            const authToken = response.headers['Authorization'];  // 응답헤더에서 토큰 받기
+  
+            const authToken_=response.headers.get('Authorization');
+        
+            console.log("Login 의 authToken: ", authToken);
+            console.log("Login 의 authToken_: ", authToken_);
+            console.log("res.headers['authorization']: ", response.headers['authorization']);
+            console.log("response.headers.get('authorization'): ", response.headers.get('authorization'));
+            console.log("headers 전체 출력: ", response.headers);
+  
+  
+            localStorage.setItem('token', authToken_);
+  
+            // axios.defaults.headers.common[
+            //   'Authorization'
+            // ] = `Bearer ${authToken}`;
+  
+            console.log("Login 로그인 false여서 로그인 실행함 5");
+  
+            setIsLogin(true);
+  
+            console.log("Login 로그인 false여서 로그인 실행함 6");
+            console.log("Login true됨");
+          }
           
-          console.log("Login 전체 응답: ", response.data);
-
-          console.log("Authorization 헤더 출력: ",response.headers.get('Authorization'));
-
-          console.log("Authorization 헤더값 존재여부: ",response.headers.has('Authorization'));
-
-
-          console.log("Login 로그인 false여서 로그인 실행함 3");
-
-          const authToken = response.headers['Authorization'];  // 응답헤더에서 토큰 받기
-
-          const authToken_=response.headers.get('Authorization');
-      
-          console.log("Login 의 authToken: ", authToken);
-
-          console.log("Login 로그인 false여서 로그인 실행함 4");
-
-          localStorage.setItem('token', authToken_);
-
-          // axios.defaults.headers.common[
-          //   'Authorization'
-          // ] = `Bearer ${authToken}`;
-
-          console.log("Login 로그인 false여서 로그인 실행함 5");
-
-          setIsLogin(true);
-
-          console.log("Login 로그인 false여서 로그인 실행함 6");
-          console.log("Login true됨");
         })
         .catch((error) => {
-          console.error("Login.js login err: ", error);
+          if (error.response) {
+            console.error('에러의 응답:', error.response);
+            //do something
+
+        } else if (error.request) {
+            console.error('에러의 요청:', error.request);
+            //do something else
+
+        } else if (error.message) {
+            console.error('에러의 메시지:', error.message);
+            //do something other than the other two
+
+        }
+    
+        return false;
         });
     }
 
