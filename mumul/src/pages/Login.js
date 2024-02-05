@@ -46,7 +46,7 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            //Authorization: 'Bearer ' + localStorage.getItem('token'),
+            Authorization: 'Bearer ' + localStorage.getItem('token'),
           },
           withCredentials: true, //-> cors 문제 해결 위해 일단 주석처리
           crossDomain: true,
@@ -77,9 +77,9 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
   
             window.localStorage.setItem('token', authToken_);
   
-            // axios.defaults.headers.common[
-            //   'Authorization'
-            // ] = `Bearer ${authToken}`;
+            axios.defaults.headers.common[
+              'Authorization'
+            ] = `Bearer ${authToken}`;
   
             console.log("Login 로그인 false여서 로그인 실행함 5");
   
