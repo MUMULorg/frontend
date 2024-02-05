@@ -3,35 +3,37 @@ import axios from "axios";
 export const getPReceivedComment = async (spaceId, page, pageSize) => {
     try {
         console.log(`spaceId는 ${spaceId}, page는 ${page} pageSize는 ${pageSize}`);
-    
-        if(spaceId ===''){
-            console.log("spaceId null");
-            
-        }
-        else if(page ===''){
-            console.log("page null");
-        
-        }
-        else if(pageSize===''){
-            console.log("pageSize null");
-          
-        }else{
-            const path = `https://api-mumul.site/spaces/${spaceId}/received/get?page=${page}&size=${pageSize}`;
 
-            const response = await axios.get(`https://api-mumul.site/spaces/${spaceId}/received/get?page=${page}&size=${pageSize}`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                    Authorization: 'Bearer ' + localStorage.getItem('token')
-                }
-            });
-    
-            console.log("get_p_received_com 응답데이터: ",response.data);
-            return response.data;
+
+        const path = `https://api-mumul.site/spaces/${spaceId}/received/get?page=${page}&size=${pageSize}`;
+
+        const response = await axios.get(`https://api-mumul.site/spaces/${spaceId}/received/get?page=${page}&size=${pageSize}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                Authorization: 'Bearer ' + localStorage.getItem('token')
+            }
+        });
+
+        console.log("get_p_received_com 응답데이터: ", response.data);
+        return response.data;
+
+
+    } catch (error) {
+        if (error.response) {
+            console.error('에러의 응답:', error.response);
+            //do something
+
+        } else if (error.request) {
+            console.error('에러의 요청:', error.request);
+            //do something else
+
+        } else if (error.message) {
+            console.error('에러의 메시지:', error.message);
+            //do something other than the other two
+
         }
-      
-    } catch (e) {
-        console.error('Error retrieving received comments:', e.message);
+
         return false;
     }
 };
