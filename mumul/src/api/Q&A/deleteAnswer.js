@@ -5,7 +5,8 @@ export const deleteAnswer = async (spaceId, answerId, userId) => {
     const path = `https://api-mumul.site/spaces/${spaceId}/${answerId}/${userId}/answer/delete`;
 
     const response = await axios.delete(
-      path, {
+      `https://api-mumul.site/spaces/${spaceId}/${answerId}/${userId}/answer/delete`
+      , {
       data: {
         userId: userId,
         spaceId: spaceId,

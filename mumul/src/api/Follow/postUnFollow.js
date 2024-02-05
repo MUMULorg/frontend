@@ -6,7 +6,7 @@ export const postUnFollow = async (spaceId) => {
     const token = localStorage.getItem('token');
 
    
-      const response = await axios.post(path, {}, {
+      const response = await axios.post(`https://api-mumul.site/unFollow/${spaceId}`, {}, {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',

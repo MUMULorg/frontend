@@ -5,7 +5,7 @@ export const putAlertSpace = async (currentUserId, alertSpace) => {
     const path = `https://api-mumul.site/v1/oauth/user/alertSpace/${currentUserId}`;
     const token = localStorage.getItem('token');
 
-    const response = await axios.put(path, alertSpace, {
+    const response = await axios.put(`https://api-mumul.site/v1/oauth/user/alertSpace/${currentUserId}`, alertSpace, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',

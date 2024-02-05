@@ -6,7 +6,7 @@ export const postFollow = async (spaceId) => {
     const path = `https://api-mumul.site/follow/${spaceId}`;
     const token = localStorage.getItem('token');
 
-        const response = await axios.post(path, {}, {
+        const response = await axios.post(`https://api-mumul.site/follow/${spaceId}`, {}, {
           headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json',

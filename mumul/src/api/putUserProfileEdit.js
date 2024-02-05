@@ -4,7 +4,7 @@ export const putUserProfileEdit = async (currentUserId, formData) => {
     try {
     const path = `https://api-mumul.site/v1/oauth/user/update/${currentUserId}`;
 
-        const response = await axios.put(path, formData, {
+        const response = await axios.put(`https://api-mumul.site/v1/oauth/user/update/${currentUserId}`, formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
               Accept: 'application/json',

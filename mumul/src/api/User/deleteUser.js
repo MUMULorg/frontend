@@ -5,7 +5,7 @@ export const deleteUser = async (userId) => {
   const path = `https://api-mumul.site/v1/oauth/user/secession/${userId}`;
     const token = localStorage.getItem('token');
     
-        const response = await axios.delete(path, {
+        const response = await axios.delete(`https://api-mumul.site/v1/oauth/user/secession/${userId}`, {
             headers: {
               'Content-Type': 'application/json',
               Accept: 'application/json',

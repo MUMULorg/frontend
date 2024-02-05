@@ -4,7 +4,7 @@ export const getSentComment = async (spaceId) => {
     try {
     const path = `https://api-mumul.site/spaces/${spaceId}/sent/get`;
 
-        const response = await axios.get(path,{
+        const response = await axios.get(`https://api-mumul.site/spaces/${spaceId}/sent/get`,{
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
