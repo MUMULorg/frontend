@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const deleteQuestion = async (spaceId, questionId, userId) => {
   try {
-    console.log(`spaceId는 ${spaceId}, answerId는 ${answerId} , userId는 ${userId}`);
+    console.log(`spaceId는 ${spaceId}, answerId는 ${questionId} , userId는 ${userId}`);
 
     const path = `https://api-mumul.site/spaces/${spaceId}/${questionId}/${userId}/question/delete`;
 
@@ -27,7 +27,7 @@ export const deleteQuestion = async (spaceId, questionId, userId) => {
     return response.data;
   } 
   
-  catch (e) {
+  catch (error) {
     if (error.response) {
       console.error('에러의 응답:', error.response);
       //do something
