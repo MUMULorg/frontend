@@ -1,9 +1,14 @@
 import axios from "axios";
 
 export const logoutUserToken = async () => {
-    const path = 'https://api-mumul.site/v1/oauth/logout';
+    console.log("로그아웃 1");
 
+    const path = 'https://api-mumul.site/v1/oauth/logout';
+    console.log("로그아웃 토큰 출력: ", localStorage.getItem('token'));
+
+    console.log("로그아웃 2");
     try {
+        console.log("로그아웃 3");
         const response = await axios.post('https://api-mumul.site/v1/oauth/logout', null, {
             headers: {
               'Content-Type': 'application/json',
@@ -11,7 +16,7 @@ export const logoutUserToken = async () => {
               Authorization: 'Bearer ' + localStorage.getItem('token')
             }
         });
-
+        console.log("로그아웃 4");
         localStorage.removeItem('token');
         console.log("로그아웃 후에 token 삭제 확인: ", localStorage.getItem("token"));
 
@@ -20,7 +25,9 @@ export const logoutUserToken = async () => {
             throw new Error('서버 상태가 이상합니다.');
         }
         
+        console.log("로그아웃 응답 데이터: ",response.data)
         // 성공적으로 요청을 처리한 경우 true 반환
+        console.log("로그아웃 5");
         return true;
     } catch (error) {
         if (error.response) {
