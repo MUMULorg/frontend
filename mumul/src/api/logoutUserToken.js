@@ -22,7 +22,7 @@ export const logoutUserToken = async () => {
         
         // 성공적으로 요청을 처리한 경우 true 반환
         return true;
-    } catch (e) {
+    } catch (error) {
         if (error.response) {
             console.error('에러의 응답:', error.response);
             //do something
