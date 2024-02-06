@@ -41,9 +41,10 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
-           // withCredentials: true, //-> cors 문제 해결 위해 일단 주석처리
-            cache: 'no-cache', // 캐시를 비우는 옵션 추가
+           withCredentials: true, //-> cors 문제 해결 위해 일단 주석처리
+            // cache: 'no-cache', // 캐시를 비우는 옵션 추가
             crossDomain: true,
           })
   
@@ -64,7 +65,8 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
               console.log("res.headers['authorization']: ", response.headers['authorization']);
               console.log("response.headers.get('authorization'): ", response.headers.get('authorization'));
               console.log("response.headers.Authorization: ", response.headers.Authorization);
-              console.log("response.headers.authorization: ", response.headers.authorization);
+              console.log("response.headers.authorization: ", response.headers.authorization); 
+              // eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiaWF0IjoxNzA3MjE2ODk3LCJleHAiOjE3MDczMDMyOTcsInJvbGUiOiJVU0VSIn0.AUByCuOr0vAYPhUqU_PgCrQww0epUntAcpMVoKoG3svjAlCu7JaY2LtzPAG7zJow634xIcZfbOom9jiKfbkaVw
   
               console.log("headers 전체 출력: ", response.headers);
     
