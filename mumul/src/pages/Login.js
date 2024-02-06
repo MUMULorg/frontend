@@ -43,7 +43,7 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
               'Content-Type': 'application/json',
               'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
-           withCredentials: true, //-> cors 문제 해결 위해 일단 주석처리
+          // withCredentials: true, //-> cors 문제 해결 위해 일단 주석처리
             // cache: 'no-cache', // 캐시를 비우는 옵션 추가
             crossDomain: true,
           })
