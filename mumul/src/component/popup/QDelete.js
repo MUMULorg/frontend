@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 
 function QDelete({ questionId,  onClose , spaceId, userId}) {
 
-  console.log(`spaceId는 ${spaceId},answerId는 ${questionId}, ,userId는 ${userId}`);
-
     const delete_ = async () => {
       try {
         await deleteQuestion(spaceId, questionId, userId);

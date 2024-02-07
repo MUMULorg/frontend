@@ -31,8 +31,6 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
       const queryParams = new URLSearchParams(window.location.search);
       const codeFromURL = queryParams.get("code");
   
-      console.log(" codeFromURL: ", codeFromURL);
-  
       if (!isLogin && !hasRequestedCallback && codeFromURL) {
         setHasRequestedCallback(true);
   
@@ -50,34 +48,8 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
   
           .then(response => {
             if(response.status===200){
-              console.log("Login 전체 응답: ", response.data);
-  
-              console.log("Authorization 헤더 출력: ",response.headers.get('Authorization'));
-    
-              console.log("Authorization 헤더값 존재여부: ",response.headers.has('Authorization'));
-    
-  
               const authToken = response.headers['authorization'];
-              const authToken_=response.headers.get('Authorization');
-          
-              console.log("Login 의 authToken: ", authToken);
-              console.log("Login 의 authToken_: ", authToken_);
-              console.log("res.headers['authorization']: ", response.headers['authorization']);
-              console.log("response.headers.get('authorization'): ", response.headers.get('authorization'));
-              console.log("response.headers.Authorization: ", response.headers.Authorization);
-              console.log("response.headers.authorization: ", response.headers.authorization); 
-              // eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiaWF0IjoxNzA3MjE2ODk3LCJleHAiOjE3MDczMDMyOTcsInJvbGUiOiJVU0VSIn0.AUByCuOr0vAYPhUqU_PgCrQww0epUntAcpMVoKoG3svjAlCu7JaY2LtzPAG7zJow634xIcZfbOom9jiKfbkaVw
-  
-              console.log("headers 전체 출력: ", response.headers);
-    
-    
               window.localStorage.setItem('token', authToken);
-    
-              // axios.defaults.headers.common[
-              //   'Authorization'
-              // ] = `Bearer ${authToken}`;
-    
-    
               setIsLogin(true);
             }
             
@@ -100,22 +72,17 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
           return false;
           });
       }
-  
-      console.log("login.js 로그인여부 2: " + isLogin);
+
   
       if (isLogin) {
-        console.log("Login.js 로그인 true임");
+
         const initLogin = async () => {
           const userInfo = await getUserInfo();
-          console.log("userInfo: ", userInfo);
-          console.log("userInfo.userId: ", userInfo.userId);
           if (userInfo === false) {
-            console.log("Login.js 로그인 true인데 저장된 userInfo는 없음 false");
             setIsLogin(false);
           }
   
           navigate(`/${userInfo.userId}`);
-          console.log("Login.js 로그인 true, 저장된 userInfo있어서 자동 네비게이터");
           setHasRequestedCallback(false);
         };
         initLogin();
@@ -161,10 +128,10 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
               <p className="loginDecs">MUMUL 스페이스를 만드려면 로그인을 해야 돼</p>
             </div>
             <div className="buttonWrap">
-              <button onClick={kakaoLogin}>
+              {/* <button onClick={kakaoLogin}>
                 <img src={Cacao} alt="" />
                 Kakao 계정으로 계속
-              </button>
+              </button> */}
               <button onClick={GoogleSocialLogin}>
                 <img src={Goggle} alt="" />
                 Google 계정으로 계속

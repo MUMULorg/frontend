@@ -78,11 +78,6 @@ function ReceiveComment({ spaceId, currentUserInfo }) {
       const spaInfo = await getSpaceInfo(spaceId);
       const response = await getPReceivedComment(spaceId, page, pageSize);
 
-
-      //뭐가 undefined인지 확인하기 위한 로그
-      console.log("response: ",response.data);
-      console.log("receivedComments: ",receivedComments);
-
      // newComments가 정의되지 않았다면 빈 배열로 초기화
       const newComments = isInitialFetch
         ? response.data

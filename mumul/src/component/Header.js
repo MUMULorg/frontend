@@ -68,11 +68,9 @@ function HeaderPopup({ isLogin, setIsLogin, currentUserInfo }) {
       const result = await logoutUserToken();
       if (result) {
         // 로그아웃 성공
-        console.log("로그아웃 성공, 토큰 삭제 확인:", localStorage.getItem("token"));
         setIsLogin(false);
         window.location.href = '/login';
       } else{
-        console.log("로그아웃 실패");
       }
     } catch (error) {
       console.error("로그아웃 오류: ", error.message);

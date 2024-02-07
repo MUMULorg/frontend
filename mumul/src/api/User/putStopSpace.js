@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const putStopSpace = async (currentUserId, stopSpace) => {
   try {
-    const path = `https://api-mumul.site/v1/oauth/user/spaceStop/${currentUserId}`;
     const token = localStorage.getItem('token');
 
     const response = await axios.put(`https://api-mumul.site/v1/oauth/user/spaceStop/${currentUserId}`, stopSpace, {

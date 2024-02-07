@@ -19,33 +19,28 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [followSelected, setFollowSelected] = useState(true);
   const [hasRequestedCallback, setHasRequestedCallback] = useState(false);
-
-  const token = localStorage.getItem('token');
-  console.log("App.js token: ", token);
   
   useEffect(() => {
     const initUserInfo = async () => {
       const response = await getUserInfo();
 
       if (response === false) {
-        console.log("로그인 false");
         setIsLogin(false);
         return;
       } else {
-        console.log("로그인 true");
         setIsLogin(true);
       }
     };
     initUserInfo();
   }, [isLogin, setIsLogin]);
 
+  // <Route exact path="/login/kakao" Component={KakaoAuthHandle} />
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Intro isLogin={isLogin} setIsLogin={setIsLogin} />} />
         <Route path="/login" element={<Login isLogin={isLogin} setIsLogin={setIsLogin}
           hasRequestedCallback={hasRequestedCallback} setHasRequestedCallback={setHasRequestedCallback} />} />
-        <Route exact path="/login/kakao" Component={KakaoAuthHandle} />
         <Route path="/:id" element={<Main isLogin={isLogin} setIsLogin={setIsLogin}
           followSelected={followSelected} setFollowSelected={setFollowSelected} />} />
         <Route path="/policy" element={<Policy />} />

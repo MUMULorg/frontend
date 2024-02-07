@@ -2,9 +2,6 @@ import axios from "axios";
 
 export const getPSentComment = async (spaceId, page, pageSize) => {
     try {
-        const path = `https://api-mumul.site/spaces/${spaceId}/sent/get?page=${page}&size=${pageSize}`;
-        console.log(`spaceId는 ${spaceId}, page는 ${page} pageSize는 ${pageSize}`);
-
         const response = await axios.get(`https://api-mumul.site/spaces/${spaceId}/sent/get?page=${page}&size=${pageSize}`, {
             headers: {
                 'Content-Type': 'application/json',
@@ -13,7 +10,6 @@ export const getPSentComment = async (spaceId, page, pageSize) => {
             }
         });
 
-        console.log("겟피센트코멘트 :", response.data);
         return response.data;
 
 

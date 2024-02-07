@@ -6,7 +6,6 @@ import MobileBrowser from "../component/popup/MobileBrowser"; // 팝업창 컴�
 import PropTypes from 'prop-types';
 
 const Intro = ({ isLogin, setIsLogin }) => {
-  console.log("인트로 로그인여부: "+ isLogin);
   const [currentUserInfo, setCurrentUserInfo] = useState({
     userId: "",
     picture: "",

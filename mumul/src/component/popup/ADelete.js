@@ -5,13 +5,11 @@ import PropTypes from 'prop-types';
 
 function ADelete({ answerId,  onClose , spaceId, userId}) {
 
-  console.log(`spaceId는 ${spaceId},answerId는 ${answerId}, ,userId는 ${userId}`);
-  
     const delete_ = async () => {
       try {
         await deleteAnswer(spaceId, answerId, userId);
         onClose(); // 답변 삭제 후 팝업을 닫습니다.
-        window.location.reload();
+        // window.location.reload();
       } catch (error) {
         if (error.response && error.response.status === 401) {
           console.error("로그인이 필요합니다.");

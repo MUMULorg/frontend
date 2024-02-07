@@ -2,8 +2,6 @@ import axios from "axios";
 
 export const getUserInfo = async () => {
   const path = 'https://api-mumul.site/v1/oauth/user/info';
-  console.log("getUserInfo token: ", localStorage.getItem('token'));
-
   try { 
     const response = await axios.get(path, {
       headers: {
@@ -19,7 +17,6 @@ export const getUserInfo = async () => {
     if (response.status !== 200) {
       throw new Error('bad server condition');
     }
-    console.log("getUserInfo 로그인 여부: ", response.data);
     return response.data; // response.data로 수정
 
   } catch (e) {

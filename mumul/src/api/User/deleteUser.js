@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const deleteUser = async (userId) => {
   try {
-  const path = `https://api-mumul.site/v1/oauth/user/secession/${userId}`;
     const token = localStorage.getItem('token');
     
         const response = await axios.delete(`https://api-mumul.site/v1/oauth/user/secession/${userId}`, {

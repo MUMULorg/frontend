@@ -2,9 +2,7 @@ import axios from "axios";
 
 export const getQuestionShare = async (questionId) => {
     try {
-        const path = `https://api-mumul.site/spaces/${questionId}/get`;
 
-        
         const response = await axios.get(`https://api-mumul.site/spaces/${questionId}/get`, {
             headers: {
                 'Content-Type': 'application/json',

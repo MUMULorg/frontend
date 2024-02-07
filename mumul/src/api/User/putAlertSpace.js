@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const putAlertSpace = async (currentUserId, alertSpace) => {
   try {
-    const path = `https://api-mumul.site/v1/oauth/user/alertSpace/${currentUserId}`;
     const token = localStorage.getItem('token');
 
     const response = await axios.put(`https://api-mumul.site/v1/oauth/user/alertSpace/${currentUserId}`, alertSpace, {

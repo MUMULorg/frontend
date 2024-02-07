@@ -2,9 +2,6 @@ import axios from "axios";
 
 export const deleteQuestion = async (spaceId, questionId, userId) => {
   try {
-    console.log(`spaceId는 ${spaceId}, answerId는 ${questionId} , userId는 ${userId}`);
-
-    const path = `https://api-mumul.site/spaces/${spaceId}/${questionId}/${userId}/question/delete`;
 
     const response = await axios.delete(
       `https://api-mumul.site/spaces/${spaceId}/${questionId}/${userId}/question/delete`
@@ -23,7 +20,6 @@ export const deleteQuestion = async (spaceId, questionId, userId) => {
 
 
     );
- console.log("질문 삭제 response: ", response.data);
     return response.data;
   } 
   

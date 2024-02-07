@@ -2,8 +2,6 @@ import axios from "axios";
 
 export const postFollow = async (spaceId) => {
   try {
-  console.log("getIsFollow spaceId: ",spaceId);
-    const path = `https://api-mumul.site/follow/${spaceId}`;
     const token = localStorage.getItem('token');
 
         const response = await axios.post(`https://api-mumul.site/follow/${spaceId}`, {}, {
@@ -18,7 +16,6 @@ export const postFollow = async (spaceId) => {
           throw new Error('bad server condition');
         }
 
-        console.log("postFollow 데이터: ", response.data);
 
         return response.data;
     } catch (e) {

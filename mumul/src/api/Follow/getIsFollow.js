@@ -2,11 +2,9 @@ import axios from "axios";
 
 export const getIsFollow = async (spaceId) => {
   try {
-    const path = `https://api-mumul.site/isFollow/${spaceId}`;
     const token = localStorage.getItem('token');
 
-    if(spaceId==''){
-      console.log("겟이즈팔로우 spaceId 빔");
+    if(spaceId===''){
       return false;
     }
     else{
@@ -21,9 +19,6 @@ export const getIsFollow = async (spaceId) => {
       if (response.status !== 200) {
         throw new Error('bad server condition');
       }
-
-      console.log("getIsFollow 데이터: ", response.data);
-
 
       return response.data;
     }
