@@ -12,13 +12,13 @@ import axios from "axios";
 import PropTypes from 'prop-types';
 
 const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallback }) => {
+  window.location.reload();
   const navigate = useNavigate();
   const KAKAO_AUTH_URL = "https://kauth.kakao.com/oauth/authorize?client_id=d2c26f36c69325cd253b8d0b68802286&redirect_uri=https://mumul.site/login/kakao&response_type=code";
 
   const GoogleSocialLogin = useGoogleLogin({
     scope: "email profile",
     ux_mode: "redirect",
-    // redirect_uri: "http://localhost:3000/login",
     flow: "auth-code",
   });
 
@@ -41,8 +41,6 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
               'Content-Type': 'application/json',
               'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
-          // withCredentials: true, //-> cors 문제 해결 위해 일단 주석처리
-            // cache: 'no-cache', // 캐시를 비우는 옵션 추가
             crossDomain: true,
           })
   

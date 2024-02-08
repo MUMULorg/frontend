@@ -33,11 +33,15 @@ function Storyslide({spaceId, followSelected, followerList}) {
   }, [spaceId]);
 
   const prevHandler = () => {
+    if (swiperRef !== null) {
     swiperRef.slidePrev();
+    }
   };
 
   const nextHandler = () => {
-    swiperRef.slideNext();
+    if (swiperRef !== null) {
+      swiperRef.slideNext();
+    }
   };
 
 
