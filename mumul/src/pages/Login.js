@@ -11,13 +11,10 @@ import Goggle from "./../img/icon/icGoggle.png";
 import Cacao from "./../img/icon/icCacao.png";
 import axios from "axios";
 import PropTypes from 'prop-types';
-import { useIsFocused } from 'react-navigation';
 
 const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallback }) => {
   const navigate = useNavigate();
   const KAKAO_AUTH_URL = "https://kauth.kakao.com/oauth/authorize?client_id=d2c26f36c69325cd253b8d0b68802286&redirect_uri=https://mumul.site/login/kakao&response_type=code";
-  // 추가: 한 번만 실행되는지 여부를 나타내는 상태
-  const isFocused = useIsFocused();
 
   const GoogleSocialLogin = useGoogleLogin({
     scope: "email profile",
@@ -108,7 +105,7 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isFocused,isLogin, setHasRequestedCallback, navigate, setIsLogin]);
+  }, [isLogin, setHasRequestedCallback, navigate, setIsLogin]);
 
 
   return (
