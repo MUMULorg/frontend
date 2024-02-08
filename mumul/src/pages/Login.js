@@ -11,7 +11,7 @@ import Goggle from "./../img/icon/icGoggle.png";
 import Cacao from "./../img/icon/icCacao.png";
 import axios from "axios";
 import PropTypes from 'prop-types';
-import { useIsFocused } from 'react-navigation';
+import { useIsFocused } from '@react-navigation/native';
 
 const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallback }) => {
   const navigate = useNavigate();
