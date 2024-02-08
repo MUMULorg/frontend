@@ -10,11 +10,11 @@
 
 ## 배포 주소
 
-> **개발 버전** : [http://mumul.site](http://mumul.site) <br>
+> **개발 버전** : [https://mumul.site](https://mumul.site) <br>
 
 ## 백엔드 리포지토리 주소
 
-> **BackEnd Repository** : [https://github.com/suucong/ama_backend](https://github.com/suucong/ama_backend) <br>
+> **BackEnd Repository** : [https://github.com/silver0-stack/mumul_back](https://github.com/silver0-stack/mumul_back) <br>
 ## 웹개발팀 소개
 
 |      최은영       |          노수진                                                                                                                           
@@ -27,7 +27,7 @@
 
 서울여자대학교 소프트웨어융합학과 학부생 2명이 제작한 Ask Me Anything(A.K.A AMA) 커뮤니티 서비스입니다. 
 
-MUMUL은 **'사람과 사람을 잇다'** 라는 핵심 가치 아래 개발되었습니다.  누구나 자유롭게 질문함으로써 소통합니다. 개인적인, 공개적인, 전문적인, 비전문적인 것을 가리지 않고 아울러 다루는 [MUMUL 무물(무엇이든 물어보세요)에서 스페이스를 시작하세요](http://mumul.site) ✨
+MUMUL은 **'사람과 사람을 잇다'** 라는 핵심 가치 아래 개발되었습니다.  누구나 자유롭게 질문함으로써 소통합니다. 개인적인, 공개적인, 전문적인, 비전문적인 것을 가리지 않고 아울러 다루는 [MUMUL 무물(무엇이든 물어보세요)에서 스페이스를 시작하세요](https://mumul.site) ✨
 
 누구나 ```익명의 토끼🐰``` 혹은 ```본인의 닉네임```으로 스페이스에서 자유롭게 질문할 수 있습니다. 그리고 질문받은 자는 ```공개``` 혹은 ```비공개``` 답변(질문자와 답변자만 확인 가능)으로 답변 확인 권한을 선택해서 답변할 수 있습니다.
 
@@ -41,7 +41,7 @@ For building and running the application you need:
 
 ### Installation
 ``` bash
-$ git clone https://github.com/suucong/mumul_frontend.git
+$ git clone https://github.com/silver0-stack/mumul_front.git
 ```
 #### Frontend
 ```
@@ -107,263 +107,7 @@ $ npm run dev
 - 질문받는 기능, 팔로우 기능 중지
    
 ---
-## 아키텍쳐
 
-### 디렉토리 구조
-```bash
-mumul.site
-└─ mumul_frontend
-   ├─ .DS_Store
-   ├─ mumul
-   │  ├─ .env
-   │  ├─ .platform
-   │  ├─ package-lock.json
-   │  ├─ package.json
-   │  ├─ public
-   │  │  ├─ favicon.ico
-   │  │  ├─ index.html
-   │  │  ├─ logo192.png
-   │  │  ├─ logo512.png
-   │  │  ├─ manifest.json
-   │  │  └─ robots.txt
-   │  └─ src
-   │     ├─ api
-   │     │  ├─ Follow
-   │     │  │  ├─ getFollowerList.js
-   │     │  │  ├─ getFollowerNumber.js
-   │     │  │  ├─ getFollowingList.js
-   │     │  │  ├─ getFollowingNumber.js
-   │     │  │  ├─ getIsFollow.js
-   │     │  │  ├─ getIsFollower.js
-   │     │  │  ├─ postFollow.js
-   │     │  │  └─ postUnFollow.js
-   │     │  ├─ getSpaceInfo.js
-   │     │  ├─ getUserInfo.js
-   │     │  ├─ logoutUserToken.js
-   │     │  ├─ postLoginToken.js
-   │     │  ├─ putUserProfileEdit.js
-   │     │  ├─ Q&A
-   │     │  │  ├─ createAnswer.js
-   │     │  │  ├─ createQuestion.js
-   │     │  │  ├─ deleteAnswer.js
-   │     │  │  ├─ deleteQuestion.js
-   │     │  │  ├─ getPReceivedComment.js
-   │     │  │  ├─ getPSentComment.js
-   │     │  │  ├─ getQuestionShare.js
-   │     │  │  ├─ getReceivedComment.js
-   │     │  │  └─ getSentComment.js
-   │     │  └─ User
-   │     │     ├─ deleteUser.js
-   │     │     ├─ putAlertSpace.js
-   │     │     └─ putStopSpace.js
-   │     ├─ App.css
-   │     ├─ App.js
-   │     ├─ App.test.js
-   │     ├─ component
-   │     │  ├─ AnonymousAnswer.js
-   │     │  ├─ AnswerButton.js
-   │     │  ├─ Comment.js
-   │     │  ├─ GoogleLogin.js
-   │     │  ├─ Header.js
-   │     │  ├─ KakaoAuthHandle.js
-   │     │  ├─ Loading.js
-   │     │  ├─ MyProfile.js
-   │     │  ├─ popup
-   │     │  │  ├─ ADelete.js
-   │     │  │  ├─ AnswerRegister.js
-   │     │  │  ├─ CantRegister.js
-   │     │  │  ├─ MobileBrowser.js
-   │     │  │  ├─ NoneMember.js
-   │     │  │  ├─ ProfileEdit.js
-   │     │  │  ├─ QDelete.js
-   │     │  │  ├─ QuestionRegister.js
-   │     │  │  └─ Share.js
-   │     │  ├─ QuestionerProfile.js
-   │     │  ├─ ReceiveComment.js
-   │     │  ├─ SendComment.js
-   │     │  ├─ ShareComment.js
-   │     │  ├─ Storyslide.js
-   │     │  └─ UntilAnswering.js
-   │     ├─ css
-   │     │  ├─ reset.css
-   │     │  └─ style.css
-   │     ├─ img
-   │     │  ├─ Ellipse 102.png
-   │     │  ├─ Ellipse 103.png
-   │     │  ├─ Ellipse 104.png
-   │     │  ├─ Ellipse 105.png
-   │     │  ├─ Ellipse 106.png
-   │     │  ├─ Ellipse 107.png
-   │     │  ├─ Ellipse 108.png
-   │     │  ├─ Ellipse 109.png
-   │     │  ├─ Ellipse 110.png
-   │     │  ├─ Ellipse 111.png
-   │     │  ├─ Ellipse 112.png
-   │     │  ├─ Ellipse 113.png
-   │     │  ├─ Group 12.png
-   │     │  ├─ icHeaderBlack.png
-   │     │  ├─ icHeartWhite.png
-   │     │  ├─ icon
-   │     │  │  ├─ close.png
-   │     │  │  ├─ CopyLink.png
-   │     │  │  ├─ gram.png
-   │     │  │  ├─ icBin.png
-   │     │  │  ├─ icCacao.png
-   │     │  │  ├─ icChat.png
-   │     │  │  ├─ icGoggle.png
-   │     │  │  ├─ icGood.png
-   │     │  │  ├─ icGoodRed.png
-   │     │  │  ├─ icMore.png
-   │     │  │  ├─ icShare.png
-   │     │  │  ├─ instagram.png
-   │     │  │  ├─ instaLogo.jpeg
-   │     │  │  ├─ left-chevron.png
-   │     │  │  └─ right-chevron.png
-   │     │  └─ Spinner.gif
-   │     ├─ index.css
-   │     ├─ index.js
-   │     ├─ logo.svg
-   │     ├─ pages
-   │     │  ├─ bookMark.js
-   │     │  ├─ Comment.js
-   │     │  ├─ Intro.js
-   │     │  ├─ Login.js
-   │     │  ├─ Main.js
-   │     │  ├─ Main2.js
-   │     │  ├─ Policy.js
-   │     │  └─ Setting.js
-   │     ├─ reportWebVitals.js
-   │     └─ setupTests.js
-   └─ README.md
-
-```
-
-<!--
-```bash
-mumul.site
-└─ mumul_frontend
-   ├─ .DS_Store
-   ├─ mumul
-   │  ├─ .env
-   │  ├─ .platform
-   │  ├─ package-lock.json
-   │  ├─ package.json
-   │  ├─ public
-   │  │  ├─ favicon.ico
-   │  │  ├─ index.html
-   │  │  ├─ logo192.png
-   │  │  ├─ logo512.png
-   │  │  ├─ manifest.json
-   │  │  └─ robots.txt
-   │  └─ src
-   │     ├─ api
-   │     │  ├─ Follow
-   │     │  │  ├─ getFollowerList.js
-   │     │  │  ├─ getFollowerNumber.js
-   │     │  │  ├─ getFollowingList.js
-   │     │  │  ├─ getFollowingNumber.js
-   │     │  │  ├─ getIsFollow.js
-   │     │  │  ├─ getIsFollower.js
-   │     │  │  ├─ postFollow.js
-   │     │  │  └─ postUnFollow.js
-   │     │  ├─ getSpaceInfo.js
-   │     │  ├─ getUserInfo.js
-   │     │  ├─ logoutUserToken.js
-   │     │  ├─ postLoginToken.js
-   │     │  ├─ putUserProfileEdit.js
-   │     │  ├─ Q&A
-   │     │  │  ├─ createAnswer.js
-   │     │  │  ├─ createQuestion.js
-   │     │  │  ├─ deleteAnswer.js
-   │     │  │  ├─ deleteQuestion.js
-   │     │  │  ├─ getPReceivedComment.js
-   │     │  │  ├─ getPSentComment.js
-   │     │  │  ├─ getQuestionShare.js
-   │     │  │  ├─ getReceivedComment.js
-   │     │  │  └─ getSentComment.js
-   │     │  └─ User
-   │     │     ├─ deleteUser.js
-   │     │     ├─ putAlertSpace.js
-   │     │     └─ putStopSpace.js
-   │     ├─ App.css
-   │     ├─ App.js
-   │     ├─ App.test.js
-   │     ├─ component
-   │     │  ├─ AnonymousAnswer.js
-   │     │  ├─ AnswerButton.js
-   │     │  ├─ Comment.js
-   │     │  ├─ GoogleLogin.js
-   │     │  ├─ Header.js
-   │     │  ├─ KakaoAuthHandle.js
-   │     │  ├─ Loading.js
-   │     │  ├─ MyProfile.js
-   │     │  ├─ popup
-   │     │  │  ├─ ADelete.js
-   │     │  │  ├─ AnswerRegister.js
-   │     │  │  ├─ CantRegister.js
-   │     │  │  ├─ MobileBrowser.js
-   │     │  │  ├─ NoneMember.js
-   │     │  │  ├─ ProfileEdit.js
-   │     │  │  ├─ QDelete.js
-   │     │  │  ├─ QuestionRegister.js
-   │     │  │  └─ Share.js
-   │     │  ├─ QuestionerProfile.js
-   │     │  ├─ ReceiveComment.js
-   │     │  ├─ SendComment.js
-   │     │  ├─ ShareComment.js
-   │     │  ├─ Storyslide.js
-   │     │  └─ UntilAnswering.js
-   │     ├─ css
-   │     │  ├─ reset.css
-   │     │  └─ style.css
-   │     ├─ img
-   │     │  ├─ Ellipse 102.png
-   │     │  ├─ Ellipse 103.png
-   │     │  ├─ Ellipse 104.png
-   │     │  ├─ Ellipse 105.png
-   │     │  ├─ Ellipse 106.png
-   │     │  ├─ Ellipse 107.png
-   │     │  ├─ Ellipse 108.png
-   │     │  ├─ Ellipse 109.png
-   │     │  ├─ Ellipse 110.png
-   │     │  ├─ Ellipse 111.png
-   │     │  ├─ Ellipse 112.png
-   │     │  ├─ Ellipse 113.png
-   │     │  ├─ Group 12.png
-   │     │  ├─ icHeaderBlack.png
-   │     │  ├─ icHeartWhite.png
-   │     │  ├─ icon
-   │     │  │  ├─ close.png
-   │     │  │  ├─ CopyLink.png
-   │     │  │  ├─ gram.png
-   │     │  │  ├─ icBin.png
-   │     │  │  ├─ icCacao.png
-   │     │  │  ├─ icChat.png
-   │     │  │  ├─ icGoggle.png
-   │     │  │  ├─ icGood.png
-   │     │  │  ├─ icGoodRed.png
-   │     │  │  ├─ icMore.png
-   │     │  │  ├─ icShare.png
-   │     │  │  ├─ instagram.png
-   │     │  │  ├─ instaLogo.jpeg
-   │     │  │  ├─ left-chevron.png
-   │     │  │  └─ right-chevron.png
-   │     │  └─ Spinner.gif
-   │     ├─ index.css
-   │     ├─ index.js
-   │     ├─ logo.svg
-   │     ├─ pages
-   │     │  ├─ bookMark.js
-   │     │  ├─ Comment.js
-   │     │  ├─ Intro.js
-   │     │  ├─ Login.js
-   │     │  ├─ Main.js
-   │     │  ├─ Main2.js
-   │     │  ├─ Policy.js
-   │     │  └─ Setting.js
-   │     ├─ reportWebVitals.js
-   │     └─ setupTests.js
-   └─ README.md
 
 ```
 -->
