@@ -7,33 +7,36 @@ import { useGoogleLogin } from "@react-oauth/google";
 import Rabbit from "./../img/Group 12.png";
 import { getUserInfo } from "../api/getUserInfo";
 import Goggle from "./../img/icon/icGoggle.png";
+ // eslint-disable-next-line
 import Cacao from "./../img/icon/icCacao.png";
 import axios from "axios";
 import PropTypes from 'prop-types';
+import { useIsFocused } from 'react-navigation';
 
 const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallback }) => {
-  window.location.reload();
   const navigate = useNavigate();
   const KAKAO_AUTH_URL = "https://kauth.kakao.com/oauth/authorize?client_id=d2c26f36c69325cd253b8d0b68802286&redirect_uri=https://mumul.site/login/kakao&response_type=code";
+  // 추가: 한 번만 실행되는지 여부를 나타내는 상태
+  const isFocused = useIsFocused();
 
   const GoogleSocialLogin = useGoogleLogin({
     scope: "email profile",
     ux_mode: "redirect",
     flow: "auth-code",
   });
-
+ // eslint-disable-next-line
   const kakaoLogin = () => {
     window.location.href = KAKAO_AUTH_URL;
   }
 
   useEffect(() => {
-    try{
+    try {
       const queryParams = new URLSearchParams(window.location.search);
       const codeFromURL = queryParams.get("code");
-  
+
       if (!isLogin && !hasRequestedCallback && codeFromURL) {
         setHasRequestedCallback(true);
-  
+
         axios
           .get(`https://api-mumul.site/v1/oauth/login/callback?code=${codeFromURL}`, {
             headers: {
@@ -43,35 +46,35 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
             },
             crossDomain: true,
           })
-  
+
           .then(response => {
-            if(response.status===200){
+            if (response.status === 200) {
               const authToken = response.headers['authorization'];
               window.localStorage.setItem('token', authToken);
               setIsLogin(true);
             }
-            
+
           })
           .catch((error) => {
             if (error.response) {
               console.error('에러의 응답:', error.response);
               //do something
-  
-          } else if (error.request) {
+
+            } else if (error.request) {
               console.error('에러의 요청:', error.request);
               //do something else
-  
-          } else if (error.message) {
+
+            } else if (error.message) {
               console.error('에러의 메시지:', error.message);
               //do something other than the other two
-  
-          }
-      
-          return false;
+
+            }
+
+            return false;
           });
       }
 
-  
+
       if (isLogin) {
 
         const initLogin = async () => {
@@ -79,33 +82,33 @@ const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallb
           if (userInfo === false) {
             setIsLogin(false);
           }
-  
+
           navigate(`/${userInfo.userId}`);
           setHasRequestedCallback(false);
         };
         initLogin();
       }
 
-    }catch(error){
+    } catch (error) {
       if (error.response) {
         console.error('에러의 응답:', error.response);
         //do something
 
-    } else if (error.request) {
+      } else if (error.request) {
         console.error('에러의 요청:', error.request);
         //do something else
 
-    } else if (error.message) {
+      } else if (error.message) {
         console.error('에러의 메시지:', error.message);
         //do something other than the other two
 
-    }
+      }
 
-    return false;
+      return false;
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLogin, setHasRequestedCallback, navigate, setIsLogin]);
+  }, [isFocused,isLogin, setHasRequestedCallback, navigate, setIsLogin]);
 
 
   return (

@@ -7,6 +7,7 @@
     },
     "dependencies": {
         "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining": "^7.23.3",
+        "@babel/plugin-proposal-private-property-in-object": "*",
         "@react-oauth/google": "^0.11.0",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^12.1.2",
@@ -28,6 +29,8 @@
         "react-dom": "^16.8.0",
         "react-google-login": "^5.2.2",
         "react-https-redirect": "^1.1.0",
+        "react-native-web": "^0.19.10",
+        "react-navigation": "^5.0.0",
         "react-router-dom": "^6.11.2",
         "react-scripts": "^5.0.1",
         "react-svg": "^16.1.18",
