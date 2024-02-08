@@ -15,9 +15,6 @@ import PropTypes from 'prop-types';
 const Login = ({ isLogin, setIsLogin, hasRequestedCallback, setHasRequestedCallback }) => {
   const navigate = useNavigate();
   const KAKAO_AUTH_URL = "https://kauth.kakao.com/oauth/authorize?client_id=d2c26f36c69325cd253b8d0b68802286&redirect_uri=https://mumul.site/login/kakao&response_type=code";
-
-
-
   const GoogleSocialLogin = useGoogleLogin({
     scope: "email profile",
     ux_mode: "redirect",
